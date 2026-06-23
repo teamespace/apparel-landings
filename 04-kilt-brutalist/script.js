@@ -57,7 +57,6 @@ const cartToggle = document.querySelector('.cart-toggle');
 const cartClose = document.querySelector('.cart-close');
 const checkoutBtn = document.getElementById('checkout-btn');
 const signupForm = document.getElementById('signup-form');
-const playBtn = document.getElementById('play-btn');
 
 function formatMoney(amount) {
   return '$' + amount.toFixed(2);
@@ -224,11 +223,6 @@ signupForm.addEventListener('submit', (e) => {
   signupForm.reset();
 });
 
-playBtn.addEventListener('click', () => {
-  playBtn.classList.toggle('playing');
-  playBtn.setAttribute('aria-label', playBtn.classList.contains('playing') ? 'Pause campaign video' : 'Play campaign video');
-});
-
 renderProducts();
 updateCart();
 
@@ -246,7 +240,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 // Header scroll behavior: sticky black background after hero
 const header = document.querySelector('.site-header') || document.querySelector('header');
-const hero = document.querySelector('.hero-split');
+const hero = document.querySelector('.hero');
 if (header && hero) {
   const onScroll = () => {
     const pastHero = window.scrollY > hero.offsetHeight - header.offsetHeight;
@@ -262,4 +256,58 @@ if (marquee) {
   const parent = marquee.parentElement;
   parent.addEventListener('mouseenter', () => { marquee.style.animationPlayState = 'paused'; });
   parent.addEventListener('mouseleave', () => { marquee.style.animationPlayState = ''; });
+}
+
+// ── Cursor Image Trail ──
+// ponytail: vanilla JS image trail on hero hover. Images cycle through the 6 product shots.
+const trailContainer = document.getElementById('cursor-trail');
+if (trailContainer) {
+  const trailImages = products.map(p => p.image);
+  const threshold = 80;
+  let mouseX = 0, mouseY = 0;
+  let lastX = -9999, lastY = -9999;
+  let imgIndex = 0;
+  let isHovering = false;
+
+  const heroEl = document.querySelector('.hero');
+
+  heroEl.addEventListener('mouseenter', () => { isHovering = true; });
+  heroEl.addEventListener('mouseleave', () => { isHovering = false; });
+  heroEl.addEventListener('mousemove', (e) => {
+    const rect = heroEl.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  });
+
+  function spawnTrailItem() {
+    const dist = Math.hypot(mouseX - lastX, mouseY - lastY);
+    if (dist < threshold || !isHovering) return;
+
+    lastX = mouseX;
+    lastY = mouseY;
+
+    const item = document.createElement('div');
+    item.className = 'trail-item entering';
+    item.style.backgroundImage = `url(${trailImages[imgIndex]})`;
+    item.style.left = mouseX + 'px';
+    item.style.top = mouseY + 'px';
+
+    trailContainer.appendChild(item);
+    imgIndex = (imgIndex + 1) % trailImages.length;
+
+    setTimeout(() => {
+      item.classList.remove('entering');
+      item.classList.add('exiting');
+    }, 900);
+
+    setTimeout(() => {
+      if (item.parentNode) item.parentNode.removeChild(item);
+    }, 1600);
+  }
+
+  function loop() {
+    spawnTrailItem();
+    requestAnimationFrame(loop);
+  }
+  loop();
 }
