@@ -262,13 +262,20 @@ button.btn {
 }
 
 .site-header {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
   background: var(--color-white);
   border-bottom: 1px solid var(--color-medium-grey);
+}
+
+.site-header--sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .header-inner {
@@ -298,16 +305,21 @@ button.btn {
   gap: 2rem;
 }
 
+.main-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .main-nav a {
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-
-.main-nav a:nth-child(1) { order: 2; }
-.main-nav a:nth-child(2) { order: 1; }
-.main-nav a:nth-child(3) { order: 3; }
 
 .nav-toggle {
   display: inline-flex;
@@ -431,6 +443,9 @@ button.btn {
     opacity: 1;
     transform: none;
   }
+
+  .cart-badge::before { content: '('; }
+  .cart-badge::after { content: ')'; }
 }
 
 .mobile-menu {
@@ -678,119 +693,79 @@ button.btn {
 }
 
 /* Category tiles */
-#women .container {
-  max-width: none;
-  padding-inline: 0;
+.category-tiles {
+  padding: 0;
 }
 
-#women .category-tabs {
-  display: none;
-}
-
-#grid-men {
-  display: none !important;
-}
-
-#grid-women {
+.category-tiles__grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0;
+  gap: 2px;
 }
 
 @media (max-width: 767px) {
-  #grid-women {
+  .category-tiles__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-tile:nth-child(5) {
+    grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 479px) {
-  #grid-women {
+  .category-tiles__grid {
     grid-template-columns: 1fr;
+  }
+
+  .category-tile:nth-child(5) {
+    grid-column: auto;
   }
 }
 
-#grid-women::after {
-  content: 'JACKETS';
-  display: flex;
-  align-items: flex-end;
-  aspect-ratio: 3 / 4;
-  padding: 1.25rem;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-white);
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent),
-    url('https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80');
-  background-size: cover;
-  background-position: center;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-}
-
-.category-card {
+.category-tile {
   position: relative;
   display: block;
-}
-
-.category-card__media {
-  position: relative;
-  width: 100%;
   aspect-ratio: 3 / 4;
   overflow: hidden;
 }
 
-.category-card__media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent);
-}
-
-.category-card__media img {
+.category-tile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition);
+  transition: transform 0.45s ease;
 }
 
-.category-card:hover .category-card__media img {
-  transform: scale(1.05);
+.category-tile:hover img,
+.category-tile:focus-visible img {
+  transform: scale(1.04);
 }
 
-.category-card__caption {
+.category-tile__label {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.category-card::after {
-  content: '';
-  position: absolute;
-  left: 1.25rem;
-  bottom: 1.25rem;
+  bottom: 1rem;
+  left: 1rem;
   z-index: 2;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-white);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
-.category-card:nth-child(1)::after { content: 'TOPS'; }
-.category-card:nth-child(2)::after { content: 'SHOP NOW'; }
-.category-card:nth-child(3)::after { content: 'BOTTOMS'; }
-.category-card:nth-child(4)::after { content: 'SHOP NOW'; }
+.category-tile--center .category-tile__label {
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-.category-card:focus-visible {
-  outline: 2px solid var(--color-black);
-  outline-offset: -2px;
+.category-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 60%);
+  pointer-events: none;
 }
 
 /* Featured products split */
@@ -914,6 +889,11 @@ button.btn {
 }
 
 /* Journey / editorial blocks */
+.journey-blocks__head {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
 .journey-blocks__grid {
   display: grid;
   gap: var(--gutter);
