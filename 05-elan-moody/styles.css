@@ -467,6 +467,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     gap: 1rem;
   }
   .new-arrivals__card { flex: 0 0 22%; max-width: 300px; }
+  .hero-content { bottom: 7rem; }
+  .hero-product-card { bottom: 7rem; }
+  .hero-lines { bottom: 2.5rem; }
+  .campaign-card { width: min(460px, 38vw); }
 }
 
 @media (prefers-reduced-motion: reduce) {
