@@ -2,45 +2,45 @@
 const products = [
   {
     id: 'p1',
-    name: 'Raw Cut Bomber',
+    name: 'Shell Bomber',
     price: 245,
     image: 'https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=800&q=80',
-    alt: 'Black and white portrait of a model in a structured jacket'
+    alt: 'Technical shell bomber jacket with water-resistant membrane'
   },
   {
     id: 'p2',
-    name: 'Concrete Trench',
+    name: 'Hard Shell Parka',
     price: 320,
     image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80',
-    alt: 'Editorial fashion shot of a long coat in monochrome'
+    alt: 'Full-length hard shell parka with sealed seams'
   },
   {
     id: 'p3',
-    name: 'Utility Vest',
+    name: 'Modular Vest',
     price: 185,
     image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80',
-    alt: 'Stark black and white streetwear editorial'
+    alt: 'Utility modular vest with MOLLE-compatible panels'
   },
   {
     id: 'p4',
-    name: 'Asymmetric Hoodie',
+    name: 'Tech Hoodie',
     price: 160,
     image: 'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=800&q=80',
-    alt: 'Model wearing an oversized hoodie in high contrast lighting'
+    alt: 'Mid-layer tech hoodie with articulated sleeves'
   },
   {
     id: 'p5',
-    name: 'Heavyweight Tee',
+    name: 'Base Layer Tee',
     price: 95,
     image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80',
-    alt: 'Minimal editorial t-shirt shot in black and white'
+    alt: 'Merino-blend base layer tee for moisture management'
   },
   {
     id: 'p6',
-    name: 'Panelled Pant',
+    name: 'Cargo Pant',
     price: 210,
     image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&q=80',
-    alt: 'Full body monochrome fashion editorial with wide leg trousers'
+    alt: 'Technical cargo pant with articulated knees and taped pockets'
   }
 ];
 
