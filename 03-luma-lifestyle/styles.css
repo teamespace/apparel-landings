@@ -822,7 +822,7 @@ button.btn {
   display: grid;
   gap: 0;
   overflow: hidden;
-  margin-top: var(--gutter-lg);
+  margin-top: calc(var(--gutter-lg) * 2);
 }
 
 @media (min-width: 768px) {
@@ -1073,21 +1073,32 @@ button.btn {
 }
 
 .showcase__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
   gap: 1rem;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (min-width: 768px) {
   .showcase__grid {
-    grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
   }
 }
 
 .showcase-card {
+  flex: 0 0 50%;
+  padding-inline: 0.5rem;
   cursor: pointer;
   transition: transform var(--transition);
+}
+
+@media (min-width: 768px) {
+  .showcase-card {
+    flex: 0 0 25%;
+    padding-inline: 0.625rem;
+  }
 }
 
 .showcase-card:hover {
@@ -1131,6 +1142,58 @@ button.btn {
 .showcase-card__meta p {
   font-size: 0.9rem;
   color: var(--color-dark-grey);
+}
+
+.showcase-card__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
+}
+
+.showcase-card__color {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 1px solid var(--color-medium-grey);
+  border-radius: 50%;
+  background: var(--color-grey);
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+
+.showcase-card__color:hover,
+.showcase-card__color:focus-visible {
+  transform: scale(1.15);
+}
+
+.showcase__controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.showcase__arrow {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-black);
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-black);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.showcase__arrow:hover,
+.showcase__arrow:focus-visible {
+  background: var(--color-black);
+  color: var(--color-white);
 }
 
 /* Journey / editorial blocks */

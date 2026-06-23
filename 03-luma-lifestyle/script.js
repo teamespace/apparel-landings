@@ -11,7 +11,8 @@ const products = [
     image1: '/generated-assets/luma/luma-product-1a.png?v=3',
     image2: '/generated-assets/luma/luma-product-1b.png?v=3',
     showcaseImage: '/generated-assets/luma/luma-showcase-1.png?v=3',
-    sizes: ['XS', 'S', 'M', 'L', 'XL']
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    colors: ['#f5f0e6', '#1a2744', '#8b9a6d']
   },
   {
     id: 2,
@@ -20,7 +21,8 @@ const products = [
     image1: '/generated-assets/luma/luma-product-2a.png?v=3',
     image2: '/generated-assets/luma/luma-product-2b.png?v=3',
     showcaseImage: '/generated-assets/luma/luma-showcase-2.png?v=3',
-    sizes: ['XS', 'S', 'M', 'L']
+    sizes: ['XS', 'S', 'M', 'L'],
+    colors: ['#e8e0d5', '#3d4a3a', '#722f37']
   },
   {
     id: 3,
@@ -29,7 +31,8 @@ const products = [
     image1: '/generated-assets/luma/luma-product-3a.png?v=3',
     image2: '/generated-assets/luma/luma-product-3b.png?v=3',
     showcaseImage: '/generated-assets/luma/luma-showcase-3.png?v=3',
-    sizes: ['S', 'M', 'L', 'XL']
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['#f4f1ea', '#2c3e50', '#a98c7b']
   },
   {
     id: 4,
@@ -38,7 +41,8 @@ const products = [
     image1: '/generated-assets/luma/luma-product-4a.png?v=3',
     image2: '/generated-assets/luma/luma-product-4b.png?v=3',
     showcaseImage: '/generated-assets/luma/luma-showcase-4.png?v=3',
-    sizes: ['One Size']
+    sizes: ['One Size'],
+    colors: ['#faf8f3', '#1f2d3d', '#6b7c4e', '#d4c5b5']
   },
   {
     id: 5,
@@ -47,7 +51,8 @@ const products = [
     image1: '/generated-assets/luma/luma-product-5a.png?v=3',
     image2: '/generated-assets/luma/luma-product-5b.png?v=3',
     showcaseImage: '/generated-assets/luma/luma-showcase-5.png?v=3',
-    sizes: ['XS', 'S', 'M', 'L', 'XL']
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    colors: ['#efebe4', '#273043', '#556b2f']
   },
   {
     id: 6,
@@ -56,7 +61,8 @@ const products = [
     image1: '/generated-assets/luma/luma-product-6a.png?v=3',
     image2: '/generated-assets/luma/luma-product-6b.png?v=3',
     showcaseImage: '/generated-assets/luma/luma-showcase-6.png?v=3',
-    sizes: ['S', 'M', 'L', 'XL']
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['#f7f5ef', '#24344d', '#7a8450', '#c9b8a8']
   }
 ];
 
@@ -240,6 +246,9 @@ function renderShowcase() {
     <article class="showcase-card" data-id="${p.id}" tabindex="0" role="button" aria-label="Open quick view for ${p.name}">
       <div class="showcase-card__media">
         <img src="${p.showcaseImage}" alt="${p.name}" loading="lazy">
+      </div>
+      <div class="showcase-card__colors">
+        ${p.colors.map(c => `<span class="showcase-card__color" style="background-color: ${c};" aria-hidden="true"></span>`).join('')}
       </div>
       <div class="showcase-card__meta">
         <h3>${p.name}</h3>
@@ -612,6 +621,30 @@ function initShowcase() {
   });
 }
 
+function initShowcaseSlider() {
+  const grid = $('#showcase-grid');
+  const prev = $('#showcase-prev');
+  const next = $('#showcase-next');
+  if (!grid || !prev || !next) return;
+
+  const getScrollStep = () => {
+    const card = grid.querySelector('.showcase-card');
+    const gap = parseInt(getComputedStyle(grid).gap || '0', 10) || 0;
+    return card ? card.offsetWidth + gap : grid.clientWidth;
+  };
+
+  const scrollBy = (direction) => {
+    const step = getScrollStep();
+    grid.scrollBy({
+      left: direction * step,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
+  };
+
+  prev.addEventListener('click', () => scrollBy(-1));
+  next.addEventListener('click', () => scrollBy(1));
+}
+
 function initCategoryMarquee() {
   const track = $('#category-track');
   if (!track) return;
@@ -661,6 +694,7 @@ function init() {
   initCartDrawer();
   initQuickView();
   initShowcase();
+  initShowcaseSlider();
   initCategoryMarquee();
   initFeaturedSlider();
   updateCartCount();
