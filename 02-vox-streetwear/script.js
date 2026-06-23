@@ -1,10 +1,10 @@
 const products = [
-  { id: 'p1', name: 'VOX BOMBER — BLACK', price: 189, image: 'https://images.unsplash.com/photo-1551488852-0801751ac367?w=800&q=80' },
-  { id: 'p2', name: 'STENCIL HOODIE', price: 98, image: 'https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=800&q=80' },
-  { id: 'p3', name: 'TAG UTILITY PANT', price: 124, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa9b996?w=800&q=80' },
-  { id: 'p4', name: 'DROP TEE / 07', price: 48, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80' },
-  { id: 'p5', name: 'VOX BEANIE', price: 36, image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=800&q=80' },
-  { id: 'p6', name: 'CARGO SHORT', price: 72, image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80' },
+  { id: 'p1', name: 'VOX BOMBER — BLACK', price: 189, image: '/generated-assets/vox/vox-product-1.png' },
+  { id: 'p2', name: 'STENCIL HOODIE', price: 98, image: '/generated-assets/vox/vox-product-2.png' },
+  { id: 'p3', name: 'TAG UTILITY PANT', price: 124, image: '/generated-assets/vox/vox-product-3.png' },
+  { id: 'p4', name: 'DROP TEE / 07', price: 48, image: '/generated-assets/vox/vox-product-4.png' },
+  { id: 'p5', name: 'VOX BEANIE', price: 36, image: '/generated-assets/vox/vox-product-5.png' },
+  { id: 'p6', name: 'CARGO SHORT', price: 72, image: '/generated-assets/vox/vox-product-6.png' },
 ];
 
 const sizes = ['S', 'M', 'L', 'XL'];
