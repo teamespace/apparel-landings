@@ -612,6 +612,19 @@ function initShowcase() {
   });
 }
 
+function initCategoryMarquee() {
+  const track = $('#category-track');
+  if (!track) return;
+  const originalTiles = Array.from(track.children);
+  if (!originalTiles.length) return;
+  // Clone original tiles for seamless infinite loop
+  originalTiles.forEach(tile => {
+    const clone = tile.cloneNode(true);
+    clone.removeAttribute('id');
+    track.appendChild(clone);
+  });
+}
+
 function init() {
   renderProducts();
   renderShowcase();
@@ -626,6 +639,7 @@ function init() {
   initCartDrawer();
   initQuickView();
   initShowcase();
+  initCategoryMarquee();
   updateCartCount();
 }
 
