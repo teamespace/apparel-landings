@@ -62,7 +62,7 @@ function formatPrice(n) {
 
 function updateCartCount() {
   const count = cart.reduce((sum, item) => sum + item.qty, 0);
-  const badge = $('.cart-badge') || $('#cart-count');
+  const badge = $('#cart-badge') || $('.cart-badge');
   if (badge) {
     badge.textContent = count;
     badge.setAttribute('data-count', count);
@@ -103,50 +103,18 @@ function cartSubtotal() {
 }
 
 function getCartDrawer() {
-  let drawer = $('.cart-drawer');
-  if (drawer) {
-    const overlay = drawer.querySelector('.cart-drawer__overlay');
-    const closeBtn = drawer.querySelector('.cart-drawer__close');
-    if (overlay && !overlay.dataset.inited) {
-      overlay.addEventListener('click', closeCart);
-      overlay.dataset.inited = 'true';
-    }
-    if (closeBtn && !closeBtn.dataset.inited) {
-      closeBtn.addEventListener('click', closeCart);
-      closeBtn.dataset.inited = 'true';
-    }
-    return drawer;
-  }
+  return $('#cart-drawer') || $('.cart-drawer');
+}
 
-  drawer = document.createElement('div');
-  drawer.className = 'cart-drawer';
-  drawer.innerHTML = `
-    <div class="cart-drawer__overlay"></div>
-    <div class="cart-drawer__panel">
-      <div class="cart-drawer__header">
-        <h2>Your Cart</h2>
-        <button class="cart-drawer__close" aria-label="Close cart">&times;</button>
-      </div>
-      <div class="cart-list"></div>
-      <div class="cart-drawer__footer">
-        <p class="cart-total">Subtotal: <span>$0.00</span></p>
-        <button class="btn btn--wide checkout-btn">Checkout</button>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(drawer);
-
-  const overlay = drawer.querySelector('.cart-drawer__overlay');
-  const closeBtn = drawer.querySelector('.cart-drawer__close');
-  if (overlay) overlay.addEventListener('click', closeCart);
-  if (closeBtn) closeBtn.addEventListener('click', closeCart);
-  return drawer;
+function getCartToggle() {
+  return $('#cart-toggle') || $('.cart-toggle');
 }
 
 function renderCart() {
   const drawer = getCartDrawer();
+  if (!drawer) return;
   const list = drawer.querySelector('.cart-list');
-  const totalEl = drawer.querySelector('.cart-total__price') || drawer.querySelector('.cart-total span:last-child');
+  const totalEl = drawer.querySelector('.cart-total__price');
   if (!list) return;
 
   if (!cart.length) {
@@ -207,37 +175,43 @@ function unlockScroll() {
 }
 
 function openCart() {
-  renderCart();
   const drawer = getCartDrawer();
+  if (!drawer) return;
+  renderCart();
   drawer.hidden = false;
   drawer.classList.add('is-open');
   drawer.setAttribute('aria-hidden', 'false');
+  const toggle = getCartToggle();
+  if (toggle) toggle.setAttribute('aria-expanded', 'true');
   lockScroll();
 }
 
 function closeCart() {
-  const drawer = $('.cart-drawer');
+  const drawer = getCartDrawer();
   if (!drawer) return;
   drawer.classList.remove('is-open');
   drawer.setAttribute('aria-hidden', 'true');
   setTimeout(() => { drawer.hidden = true; }, 300);
+  const toggle = getCartToggle();
+  if (toggle) toggle.setAttribute('aria-expanded', 'false');
   unlockScroll();
 }
 
-const cartToggle = $('.cart-toggle') || $('#cart-btn');
-if (cartToggle) cartToggle.addEventListener('click', openCart);
+function initCartDrawer() {
+  const drawer = getCartDrawer();
+  if (!drawer) return;
 
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    const drawer = $('.cart-drawer');
-    if (drawer && drawer.classList.contains('is-open')) closeCart();
-    const mobileMenu = $('.mobile-menu');
-    if (mobileMenu && mobileMenu.classList.contains('is-open')) closeMobileMenu();
-  }
-});
+  const overlay = drawer.querySelector('.cart-drawer__overlay');
+  const closeBtn = drawer.querySelector('.cart-drawer__close');
+  if (overlay) overlay.addEventListener('click', closeCart);
+  if (closeBtn) closeBtn.addEventListener('click', closeCart);
+
+  const toggle = getCartToggle();
+  if (toggle) toggle.addEventListener('click', openCart);
+}
 
 function renderProducts() {
-  const container = $('#product-grid') || $('.product-scroll');
+  const container = $('#product-scroll') || $('.product-scroll') || $('#product-grid');
   if (!container) return;
   container.innerHTML = products.map(p => `
     <article class="product-card" data-id="${p.id}" tabindex="0" role="button" aria-label="Open quick view for ${p.name}">
@@ -302,30 +276,32 @@ function closeQuickView() {
   unlockScroll();
 }
 
-const grid = $('#product-grid') || $('.product-scroll');
-if (grid) {
-  grid.addEventListener('click', (e) => {
-    const card = e.target.closest('.product-card');
-    if (!card) return;
-    const product = products.find(p => p.id === Number(card.dataset.id));
-    if (product) openQuickView(product);
-  });
-  grid.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+function initQuickView() {
+  const container = $('#product-scroll') || $('.product-scroll') || $('#product-grid');
+  if (container) {
+    container.addEventListener('click', (e) => {
       const card = e.target.closest('.product-card');
       if (!card) return;
-      e.preventDefault();
       const product = products.find(p => p.id === Number(card.dataset.id));
       if (product) openQuickView(product);
-    }
-  });
-}
+    });
+    container.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const card = e.target.closest('.product-card');
+        if (!card) return;
+        e.preventDefault();
+        const product = products.find(p => p.id === Number(card.dataset.id));
+        if (product) openQuickView(product);
+      }
+    });
+  }
 
-const modal = $('#quick-view');
-if (modal) {
-  modal.addEventListener('click', (e) => {
-    if (e.target.hasAttribute('data-close')) closeQuickView();
-  });
+  const modal = $('#quick-view');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target.closest('[data-close]')) closeQuickView();
+    });
+  }
 }
 
 function initProductHover() {
@@ -355,8 +331,11 @@ function initAnnouncementBar() {
   const messages = $$('.announcement-bar__message', bar);
   if (messages.length < 2) return;
 
-  let index = 0;
-  messages[index].classList.add('is-active');
+  let index = messages.findIndex(m => m.classList.contains('is-active'));
+  if (index < 0) {
+    index = 0;
+    messages.forEach((m, i) => m.classList.toggle('is-active', i === 0));
+  }
 
   const rotate = () => {
     messages[index].classList.remove('is-active');
@@ -366,7 +345,7 @@ function initAnnouncementBar() {
 
   const interval = setInterval(rotate, 4000);
 
-  const close = $('.announcement-bar__close', bar);
+  const close = $('#announcement-close') || $('.announcement-bar__close', bar);
   if (close) {
     close.addEventListener('click', () => {
       clearInterval(interval);
@@ -383,9 +362,9 @@ function initHeaderScroll() {
 
   const update = () => {
     const y = window.scrollY;
-    header.classList.toggle('header--sticky', y > 20);
-    if (y > lastY && y > 80) header.classList.add('header--hidden');
-    else header.classList.remove('header--hidden');
+    header.classList.toggle('site-header--sticky', y > 20);
+    if (y > lastY && y > 80) header.classList.add('site-header--hidden');
+    else header.classList.remove('site-header--hidden');
     lastY = y;
     ticking = false;
   };
@@ -405,45 +384,54 @@ function initHeroCarousel() {
 
   let current = 0;
   let timer = null;
-  const reduced = prefersReducedMotion;
+
+  // Normalize HTML .active to CSS .is-active.
+  slides.forEach((slide, i) => {
+    if (slide.classList.contains('active')) current = i;
+    slide.classList.remove('active');
+    slide.classList.toggle('is-active', i === current);
+  });
+
+  const pagination = $('.hero__pagination') || hero;
+  const dots = $$('.hero__dot', pagination);
+
+  dots.forEach((dot, i) => {
+    if (dot.classList.contains('active')) current = i;
+    dot.classList.remove('active');
+    dot.classList.toggle('is-active', i === current);
+    dot.setAttribute('aria-selected', String(i === current));
+  });
 
   const setSlide = (next) => {
+    if (next === current) return;
     slides[current].classList.remove('is-active');
     slides[next].classList.add('is-active');
+    if (dots[current]) {
+      dots[current].classList.remove('is-active');
+      dots[current].setAttribute('aria-selected', 'false');
+    }
+    if (dots[next]) {
+      dots[next].classList.add('is-active');
+      dots[next].setAttribute('aria-selected', 'true');
+    }
     current = next;
-    updateDots();
   };
 
   const nextSlide = () => setSlide((current + 1) % slides.length);
 
-  let pagination = $('.hero__pagination');
-  if (!pagination) {
-    pagination = document.createElement('div');
-    pagination.className = 'hero__pagination';
-    if (hero) hero.appendChild(pagination);
+  if (pagination) {
+    pagination.addEventListener('click', (e) => {
+      const dot = e.target.closest('.hero__dot');
+      if (!dot) return;
+      const idx = Number(dot.dataset.slide ?? dot.dataset.index);
+      if (!Number.isNaN(idx)) {
+        setSlide(idx);
+        resetTimer();
+      }
+    });
   }
 
-  pagination.innerHTML = slides.map((_, i) => `
-    <button class="hero__dot" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>
-  `).join('');
-
-  const updateDots = () => {
-    $$('.hero__dot', pagination).forEach((dot, i) => {
-      dot.classList.toggle('is-active', i === current);
-    });
-  };
-
-  pagination.addEventListener('click', (e) => {
-    const dot = e.target.closest('.hero__dot');
-    if (!dot) return;
-    setSlide(Number(dot.dataset.index));
-    resetTimer();
-  });
-
-  slides[0].classList.add('is-active');
-  updateDots();
-
-  const startTimer = () => { if (!reduced) timer = setInterval(nextSlide, 5000); };
+  const startTimer = () => { if (!prefersReducedMotion) timer = setInterval(nextSlide, 5000); };
   const stopTimer = () => clearInterval(timer);
   const resetTimer = () => { stopTimer(); startTimer(); };
 
@@ -458,19 +446,18 @@ function initHeroCarousel() {
 
 function initCategoryTabs() {
   const tabs = $$('.category-tab');
-  const cards = $$('.category-card');
-  if (!tabs.length || !cards.length) return;
+  const grids = $$('.category-grid');
+  if (!tabs.length) return;
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const category = tab.dataset.tab;
       tabs.forEach(t => {
-        t.classList.remove('is-active');
+        t.classList.remove('active', 'is-active');
         t.setAttribute('aria-selected', 'false');
       });
-      tab.classList.add('is-active');
+      tab.classList.add('active', 'is-active');
       tab.setAttribute('aria-selected', 'true');
-      const grids = $$('.category-grid');
       grids.forEach(grid => {
         grid.hidden = grid.id !== `grid-${category}`;
       });
@@ -500,8 +487,8 @@ function initFadeIn() {
 }
 
 function openMobileMenu() {
-  const menu = $('.mobile-menu') || $('#nav-menu');
-  const toggle = $('.mobile-menu__toggle') || $('#nav-toggle');
+  const menu = $('#mobile-menu') || $('.mobile-menu');
+  const toggle = $('#nav-toggle') || $('.mobile-menu__toggle');
   if (menu) {
     menu.hidden = false;
     menu.classList.add('is-open');
@@ -512,8 +499,8 @@ function openMobileMenu() {
 }
 
 function closeMobileMenu() {
-  const menu = $('.mobile-menu') || $('#nav-menu');
-  const toggle = $('.mobile-menu__toggle') || $('#nav-toggle');
+  const menu = $('#mobile-menu') || $('.mobile-menu');
+  const toggle = $('#nav-toggle') || $('.mobile-menu__toggle');
   if (menu) {
     menu.classList.remove('is-open');
     menu.setAttribute('aria-hidden', 'true');
@@ -524,23 +511,23 @@ function closeMobileMenu() {
 }
 
 function initMobileMenu() {
-  const toggle = $('.mobile-menu__toggle') || $('#nav-toggle');
+  const toggle = $('#nav-toggle') || $('.mobile-menu__toggle');
   if (!toggle) return;
 
   toggle.addEventListener('click', () => {
-    const menu = $('.mobile-menu') || $('#nav-menu');
+    const menu = $('#mobile-menu') || $('.mobile-menu');
     const isOpen = menu ? menu.classList.contains('is-open') : false;
     isOpen ? closeMobileMenu() : openMobileMenu();
   });
 
-  const overlay = $('.mobile-menu__overlay');
-  if (overlay) overlay.addEventListener('click', closeMobileMenu);
+  const menu = $('#mobile-menu') || $('.mobile-menu');
+  if (menu) {
+    const overlay = menu.querySelector('.mobile-menu__overlay');
+    const closeBtn = menu.querySelector('.mobile-menu__close');
+    if (overlay) overlay.addEventListener('click', closeMobileMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMobileMenu);
 
-  const closeBtn = $('.mobile-menu__close');
-  if (closeBtn) closeBtn.addEventListener('click', closeMobileMenu);
-
-  const panel = $('.mobile-menu__panel') || $('#nav-menu');
-  if (panel) {
+    const panel = menu.querySelector('.mobile-menu__panel') || menu;
     panel.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => closeMobileMenu());
     });
@@ -570,6 +557,17 @@ function initNewsletter() {
   }
 }
 
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const drawer = getCartDrawer();
+    if (drawer && drawer.classList.contains('is-open')) closeCart();
+    const mobileMenu = $('#mobile-menu') || $('.mobile-menu');
+    if (mobileMenu && mobileMenu.classList.contains('is-open')) closeMobileMenu();
+    const modal = $('#quick-view');
+    if (modal && !modal.hidden) closeQuickView();
+  }
+});
+
 function init() {
   renderProducts();
   initProductHover();
@@ -580,6 +578,8 @@ function init() {
   initFadeIn();
   initMobileMenu();
   initNewsletter();
+  initCartDrawer();
+  initQuickView();
   updateCartCount();
 }
 

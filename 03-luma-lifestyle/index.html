@@ -7,8 +7,36 @@
   <meta name="description" content="LUMA lifestyle essentials — premium, monochrome sportswear and wardrobe staples made to live in.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --font: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius: 0 !important;
+    }
+    body, h1, h2, h3, h4, h5, h6 { font-family: var(--font); }
+    .site-header { position: relative; top: 0; left: 0; right: 0; border-radius: 0 !important; box-shadow: none; }
+    .site-header--sticky { left: 0; right: 0; border-radius: 0 !important; }
+    .logo { font-weight: 700; letter-spacing: 0.15em; }
+    .main-nav__list { gap: 1.75rem; }
+    .header-actions { gap: 1.25rem; }
+    .header-actions__link,
+    .cart-toggle { width: auto; height: auto; padding: 0; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: #000; background: transparent; border: 0; }
+    .cart-toggle { display: inline-flex; align-items: center; gap: 0.35rem; }
+    .cart-badge { position: static; opacity: 1 !important; transform: none !important; min-width: auto; height: auto; padding: 0; background: transparent; color: inherit; }
+    .category-tiles { padding: 0; }
+    .category-tiles__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+    @media (max-width: 767px) {
+      .category-tiles__grid { grid-template-columns: repeat(2, 1fr); }
+      .category-tile:nth-child(5) { grid-column: 1 / -1; }
+    }
+    .category-tile { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; }
+    .category-tile img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; transition: transform .45s ease; }
+    .category-tile:hover img { transform: scale(1.04); }
+    .category-tile__label { position: absolute; bottom: 1rem; left: 1rem; font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.35); }
+    .category-tile--center .category-tile__label { left: 50%; transform: translateX(-50%); }
+    .journey-blocks__head { grid-column: 1 / -1; margin-bottom: 0.5rem; }
+  </style>
 </head>
 <body>
   <div class="announcement-bar" id="announcement-bar" role="banner" aria-label="Promotions">
@@ -27,20 +55,18 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="#women" class="nav-link">Women</a>
-        <a href="#men" class="nav-link">Men</a>
-        <a href="#journey" class="nav-link">Journey</a>
+        <ul class="main-nav__list">
+          <li><a href="#men" class="nav-link">Men</a></li>
+          <li><a href="#women" class="nav-link">Women</a></li>
+          <li><a href="#journey" class="nav-link">Journey</a></li>
+        </ul>
       </nav>
       <a href="#" class="logo" aria-label="LUMA home">LUMA</a>
       <div class="header-actions">
-        <button class="header-actions__btn" aria-label="Search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-        </button>
-        <a href="#" class="header-actions__btn" aria-label="Account">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-        </a>
+        <a href="#" class="header-actions__link" aria-label="Account">Account</a>
+        <button class="header-actions__link" aria-label="Search">Search</button>
         <button class="cart-toggle" id="cart-toggle" aria-expanded="false" aria-controls="cart-drawer" aria-label="Open cart">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 5 3H2"/></svg>
+          Cart
           <span class="cart-badge" id="cart-badge" data-count="0" aria-label="Items in cart">0</span>
         </button>
       </div>
@@ -99,65 +125,29 @@
       </div>
     </section>
 
-    <section class="section" id="women" aria-labelledby="category-heading">
-      <div class="container">
-        <div class="category-tabs" role="tablist" aria-label="Shop by category">
-          <button class="category-tab active" data-tab="women" aria-selected="true" role="tab" id="tab-women" aria-controls="grid-women">Women</button>
-          <button class="category-tab" data-tab="men" aria-selected="false" role="tab" id="tab-men" aria-controls="grid-men">Men</button>
-        </div>
-        <h2 class="visually-hidden" id="category-heading">Shop by category</h2>
-        <div class="category-grid" id="grid-women" role="tabpanel" aria-labelledby="tab-women">
-          <a href="#" class="category-card fade-in">
-            <div class="category-card__media">
-              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Women's activewear category">
-            </div>
-            <span class="category-card__caption">Activewear</span>
-          </a>
-          <a href="#" class="category-card fade-in">
-            <div class="category-card__media">
-              <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Women's knitwear category">
-            </div>
-            <span class="category-card__caption">Knitwear</span>
-          </a>
-          <a href="#" class="category-card fade-in">
-            <div class="category-card__media">
-              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Women's essentials category">
-            </div>
-            <span class="category-card__caption">Essentials</span>
-          </a>
-          <a href="#" class="category-card fade-in">
-            <div class="category-card__media">
-              <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80" alt="Women's loungewear category">
-            </div>
-            <span class="category-card__caption">Loungewear</span>
-          </a>
-        </div>
-        <div class="category-grid" id="grid-men" role="tabpanel" aria-labelledby="tab-men" hidden>
-          <a href="#" class="category-card fade-in">
-            <div class="category-card__media">
-              <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80" alt="Men's activewear category">
-            </div>
-            <span class="category-card__caption">Activewear</span>
-          </a>
-          <a href="#" class="category-card fade-in">
-            <div class="category-card__media">
-              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80" alt="Men's knitwear category">
-            </div>
-            <span class="category-card__caption">Knitwear</span>
-          </a>
-          <a href="#" class="category-card fade-in">
-            <div class="category-card__media">
-              <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Men's essentials category">
-            </div>
-            <span class="category-card__caption">Essentials</span>
-          </a>
-          <a href="#" class="category-card fade-in">
-            <div class="category-card__media">
-              <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80" alt="Men's loungewear category">
-            </div>
-            <span class="category-card__caption">Loungewear</span>
-          </a>
-        </div>
+    <section class="section category-tiles" id="women" aria-label="Shop by category">
+      <h2 class="visually-hidden">Shop by category</h2>
+      <div class="category-tiles__grid">
+        <a href="#" class="category-tile">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Women's tops category">
+          <span class="category-tile__label">Tops</span>
+        </a>
+        <a href="#" class="category-tile category-tile--center">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Shop now">
+          <span class="category-tile__label">Shop Now</span>
+        </a>
+        <a href="#" class="category-tile">
+          <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80" alt="Women's bottoms category">
+          <span class="category-tile__label">Bottoms</span>
+        </a>
+        <a href="#" class="category-tile category-tile--center">
+          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80" alt="Shop now">
+          <span class="category-tile__label">Shop Now</span>
+        </a>
+        <a href="#" class="category-tile">
+          <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80" alt="Women's jackets category">
+          <span class="category-tile__label">Jackets</span>
+        </a>
       </div>
     </section>
 
@@ -174,45 +164,43 @@
     </section>
 
     <section class="section journey-blocks" id="journey" aria-labelledby="journey-heading">
-      <div class="container">
+      <div class="journey-blocks__head">
         <p class="eyebrow">The Journal</p>
         <h2 class="section-title" id="journey-heading">Journey</h2>
-        <div class="journey-blocks__grid">
-          <article class="journey-block fade-in">
-            <div class="journey-block__content">
-              <span class="journey-block__badge">Lifestyle</span>
-              <h3>The Morning Ritual</h3>
-              <p>How the right layers turn slow mornings into intentional starts.</p>
-              <a href="#" class="journey-block__link">Read More</a>
-            </div>
-            <div class="journey-block__media">
-              <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80" alt="Loungewear flatlay in soft natural tones">
-            </div>
-          </article>
-          <article class="journey-block fade-in">
-            <div class="journey-block__content">
-              <span class="journey-block__badge">Movement</span>
-              <h3>Train in Tone</h3>
-              <p>Monochrome activewear that performs from warm-up to cooldown.</p>
-              <a href="#" class="journey-block__link">Read More</a>
-            </div>
-            <div class="journey-block__media">
-              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Person stretching in minimal activewear">
-            </div>
-          </article>
-          <article class="journey-block fade-in">
-            <div class="journey-block__content">
-              <span class="journey-block__badge">Design</span>
-              <h3>Less, But Better</h3>
-              <p>Inside our process for building a wardrobe that outlasts trends.</p>
-              <a href="#" class="journey-block__link">Read More</a>
-            </div>
-            <div class="journey-block__media">
-              <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Close-up of premium fabric texture">
-            </div>
-          </article>
-        </div>
       </div>
+      <article class="journey-block fade-in">
+        <div class="journey-block__content">
+          <span class="journey-block__badge">Lifestyle</span>
+          <h3>The Morning Ritual</h3>
+          <p>How the right layers turn slow mornings into intentional starts.</p>
+          <a href="#" class="journey-block__link">Read More</a>
+        </div>
+        <div class="journey-block__media">
+          <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80" alt="Loungewear flatlay in soft natural tones">
+        </div>
+      </article>
+      <article class="journey-block fade-in">
+        <div class="journey-block__content">
+          <span class="journey-block__badge">Movement</span>
+          <h3>Train in Tone</h3>
+          <p>Monochrome activewear that performs from warm-up to cooldown.</p>
+          <a href="#" class="journey-block__link">Read More</a>
+        </div>
+        <div class="journey-block__media">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Person stretching in minimal activewear">
+        </div>
+      </article>
+      <article class="journey-block fade-in">
+        <div class="journey-block__content">
+          <span class="journey-block__badge">Design</span>
+          <h3>Less, But Better</h3>
+          <p>Inside our process for building a wardrobe that outlasts trends.</p>
+          <a href="#" class="journey-block__link">Read More</a>
+        </div>
+        <div class="journey-block__media">
+          <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Close-up of premium fabric texture">
+        </div>
+      </article>
     </section>
 
     <section class="section newsletter" aria-labelledby="newsletter-heading">
