@@ -11,50 +11,54 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="utility-bar" id="utility-bar" role="banner">
-    <p>Free shipping on orders over $150</p>
-    <button class="utility-close" id="utility-close" aria-label="Close announcement">×</button>
-  </div>
-
   <header class="site-header" role="banner">
-    <a href="#" class="logo" aria-label="ARLO home">ARLO</a>
     <nav class="main-nav" aria-label="Primary">
       <a href="#shirting">Shirting</a>
       <a href="#tailoring">Tailoring</a>
       <a href="#collection">Collection</a>
       <a href="#journal">Journal</a>
     </nav>
+    <a href="#" class="logo" aria-label="ARLO home">ARLO</a>
     <div class="header-actions">
+      <button class="text-btn" aria-label="Account">ACCOUNT</button>
       <button class="icon-btn" aria-label="Search">⌕</button>
-      <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark theme">◐</button>
-      <button class="icon-btn" id="bag-btn" aria-label="Shopping bag">Bag (<span id="bag-count">0</span>)</button>
+      <button class="text-btn" id="bag-btn" aria-label="Shopping bag">CART (<span id="bag-count">0</span>)</button>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="hero-triptych" aria-label="Hero">
-      <a href="#shirting" class="hero-panel">
-        <img src="/generated-assets/arlo/arlo-cat-shirting.png" alt="Shop Shirting" />
-        <div class="hero-panel__overlay">
-          <h2 class="hero-panel__title">Shop Shirting</h2>
-          <span class="hero-panel__btn" aria-hidden="true">↗</span>
+    <section class="hero-carousel" aria-label="Hero" aria-roledescription="carousel" aria-live="polite">
+      <div class="hero-carousel__track">
+        <div class="hero-slide is-active">
+          <img class="hero-slide__media" src="/generated-assets/arlo/arlo-hero.png" alt="Shop Collection" />
+          <div class="hero-slide__content">
+            <h2 class="hero-slide__title">The Season Ahead</h2>
+            <p class="hero-slide__subtitle">Quiet essentials built to last</p>
+            <a href="#collection" class="hero-slide__cta">Shop All</a>
+          </div>
         </div>
-      </a>
-      <a href="#tailoring" class="hero-panel">
-        <img src="/generated-assets/arlo/arlo-cat-tailoring.png" alt="Shop Tailoring" />
-        <div class="hero-panel__overlay">
-          <span class="hero-panel__badge">Limited</span>
-          <h2 class="hero-panel__title">Shop Tailoring</h2>
-          <span class="hero-panel__btn" aria-hidden="true">↗</span>
+        <div class="hero-slide">
+          <img class="hero-slide__media" src="/generated-assets/arlo/arlo-cat-shirting.png" alt="Shop Shirting" />
+          <div class="hero-slide__content">
+            <h2 class="hero-slide__title">The Perfect Shirt</h2>
+            <p class="hero-slide__subtitle">Structure, ease, and natural fiber</p>
+            <a href="#shirting" class="hero-slide__cta">Shop Shirting</a>
+          </div>
         </div>
-      </a>
-      <a href="#collection" class="hero-panel">
-        <img src="/generated-assets/arlo/arlo-hero.png" alt="Shop Collection" />
-        <div class="hero-panel__overlay">
-          <h2 class="hero-panel__title">Shop Collection</h2>
-          <span class="hero-panel__btn" aria-hidden="true">↗</span>
+        <div class="hero-slide">
+          <img class="hero-slide__media" src="/generated-assets/arlo/arlo-cat-tailoring.png" alt="Shop Tailoring" />
+          <div class="hero-slide__content">
+            <h2 class="hero-slide__title">Modern Tailoring</h2>
+            <p class="hero-slide__subtitle">Limited run, made to measure</p>
+            <a href="#tailoring" class="hero-slide__cta">Shop Tailoring</a>
+          </div>
         </div>
-      </a>
+      </div>
+      <div class="hero-dots" role="tablist" aria-label="Slide navigation">
+        <button class="hero-dot is-active" aria-label="Go to slide 1" aria-selected="true" role="tab"></button>
+        <button class="hero-dot" aria-label="Go to slide 2" aria-selected="false" role="tab"></button>
+        <button class="hero-dot" aria-label="Go to slide 3" aria-selected="false" role="tab"></button>
+      </div>
     </section>
 
     <section class="manifesto" aria-labelledby="manifesto-heading">
@@ -211,32 +215,46 @@
     </section>
 
     <section class="journal" id="journal" aria-labelledby="journal-heading">
-      <div class="section-header">
-        <p class="eyebrow">Journal</p>
-        <h2 id="journal-heading" class="section-title">Notes from the Atelier</h2>
-      </div>
-      <div class="journal__grid">
-        <article class="journal-card">
-          <img src="/generated-assets/arlo/arlo-journal-1.png" alt="Journal 1" />
-          <p class="journal-card__date">June 2026</p>
-          <h3>On the Art of Restraint</h3>
-          <p>Why fewer, better pieces will always win.</p>
-          <a href="#" class="text-link">Read more</a>
-        </article>
-        <article class="journal-card">
-          <img src="/generated-assets/arlo/arlo-journal-2.png" alt="Journal 2" />
-          <p class="journal-card__date">May 2026</p>
-          <h3>A Guide to Linen</h3>
-          <p>How our favorite warm-weather fabric is made.</p>
-          <a href="#" class="text-link">Read more</a>
-        </article>
-        <article class="journal-card">
-          <img src="/generated-assets/arlo/arlo-journal-3.png" alt="Journal 3" />
-          <p class="journal-card__date">April 2026</p>
-          <h3>The Perfect White Shirt</h3>
-          <p>Finding the balance between structure and ease.</p>
-          <a href="#" class="text-link">Read more</a>
-        </article>
+      <h2 id="journal-heading" class="journal__heading">We create, you wear.</h2>
+      <div class="journal__slider">
+        <button class="journal__arrow journal__arrow--left" aria-label="Previous journal entries">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="journal__scroll" tabindex="0" role="list" aria-label="Journal entries">
+          <article class="journal-card journal-card--wide" role="listitem">
+            <img src="/generated-assets/arlo/arlo-journal-1.png" alt="On the Art of Restraint" />
+            <div class="journal-card__overlay">
+              <p class="journal-card__date">June 2026</p>
+              <h3>On the Art of Restraint</h3>
+            </div>
+          </article>
+          <article class="journal-card journal-card--narrow" role="listitem">
+            <img src="/generated-assets/arlo/arlo-journal-2.png" alt="A Guide to Linen" />
+          </article>
+          <article class="journal-card journal-card--wide" role="listitem">
+            <img src="/generated-assets/arlo/arlo-journal-3.png" alt="The Perfect White Shirt" />
+            <div class="journal-card__overlay">
+              <p class="journal-card__date">April 2026</p>
+              <h3>The Perfect White Shirt</h3>
+            </div>
+          </article>
+          <article class="journal-card journal-card--narrow" role="listitem">
+            <img src="/generated-assets/arlo/arlo-look-1.png" alt="Look 01" />
+          </article>
+          <article class="journal-card journal-card--wide" role="listitem">
+            <img src="/generated-assets/arlo/arlo-look-2.png" alt="Look 02" />
+            <div class="journal-card__overlay">
+              <p class="journal-card__date">Season 26</p>
+              <h3>Quiet Confidence</h3>
+            </div>
+          </article>
+          <article class="journal-card journal-card--narrow" role="listitem">
+            <img src="/generated-assets/arlo/arlo-look-3.png" alt="Look 03" />
+          </article>
+        </div>
+        <button class="journal__arrow journal__arrow--right" aria-label="Next journal entries">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </section>
   </main>

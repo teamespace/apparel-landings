@@ -105,7 +105,48 @@
   if (backdrop) backdrop.addEventListener('click', closeDrawer);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
 
+  // Journal slider arrows
+  const journalScroll = document.querySelector('.journal__scroll');
+  const journalLeft = document.querySelector('.journal__arrow--left');
+  const journalRight = document.querySelector('.journal__arrow--right');
+  if (journalScroll && journalLeft && journalRight) {
+    journalLeft.addEventListener('click', () => {
+      journalScroll.scrollBy({ left: -journalScroll.clientWidth * 0.75, behavior: 'smooth' });
+    });
+    journalRight.addEventListener('click', () => {
+      journalScroll.scrollBy({ left: journalScroll.clientWidth * 0.75, behavior: 'smooth' });
+    });
+  }
+
   renderDrawer();
+
+  // Hero carousel
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  if (slides.length && dots.length) {
+    let current = 0;
+    const interval = 5000;
+
+    function showSlide(index) {
+      slides[current].classList.remove('is-active');
+      dots[current].classList.remove('is-active');
+      dots[current].setAttribute('aria-selected', 'false');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('is-active');
+      dots[current].classList.add('is-active');
+      dots[current].setAttribute('aria-selected', 'true');
+    }
+
+    let autoPlay = setInterval(() => showSlide(current + 1), interval);
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        clearInterval(autoPlay);
+        showSlide(i);
+        autoPlay = setInterval(() => showSlide(current + 1), interval);
+      });
+    });
+  }
 
   // Scroll reveal
   const revealEls = document.querySelectorAll('.category-card, .feature-product, .lookbook__item, .craft__inner, .journal-card, .manifesto__inner');
