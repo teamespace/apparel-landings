@@ -4,42 +4,42 @@ const products = [
     id: 'p1',
     name: 'Shell Bomber',
     price: 245,
-    image: 'generated-assets/kilt/kilt-product-1.png',
+    image: '../generated-assets/kilt/kilt-product-1.png',
     alt: 'Technical shell bomber jacket with water-resistant membrane'
   },
   {
     id: 'p2',
     name: 'Hard Shell Parka',
     price: 320,
-    image: 'generated-assets/kilt/kilt-product-2.png',
+    image: '../generated-assets/kilt/kilt-product-2.png',
     alt: 'Full-length hard shell parka with sealed seams'
   },
   {
     id: 'p3',
     name: 'Modular Vest',
     price: 185,
-    image: 'generated-assets/kilt/kilt-product-3.png',
+    image: '../generated-assets/kilt/kilt-product-3.png',
     alt: 'Utility modular vest with MOLLE-compatible panels'
   },
   {
     id: 'p4',
     name: 'Tech Hoodie',
     price: 160,
-    image: 'generated-assets/kilt/kilt-product-4.png',
+    image: '../generated-assets/kilt/kilt-product-4.png',
     alt: 'Mid-layer tech hoodie with articulated sleeves'
   },
   {
     id: 'p5',
     name: 'Base Layer Tee',
     price: 95,
-    image: 'generated-assets/kilt/kilt-product-5.png',
+    image: '../generated-assets/kilt/kilt-product-5.png',
     alt: 'Merino-blend base layer tee for moisture management'
   },
   {
     id: 'p6',
     name: 'Cargo Pant',
     price: 210,
-    image: 'generated-assets/kilt/kilt-product-6.png',
+    image: '../generated-assets/kilt/kilt-product-6.png',
     alt: 'Technical cargo pant with articulated knees and taped pockets'
   }
 ];
