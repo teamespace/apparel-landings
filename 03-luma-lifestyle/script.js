@@ -6,50 +6,50 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 const products = [
   {
     id: 1,
-    name: 'Linen Everyday Shirt',
-    price: 89,
-    image1: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80',
-    image2: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80',
+    name: 'Cotton Tennis Sweater',
+    price: 98,
+    image1: '/generated-assets/luma/luma-product-1a.png',
+    image2: '/generated-assets/luma/luma-product-1b.png',
     sizes: ['XS', 'S', 'M', 'L', 'XL']
   },
   {
     id: 2,
-    name: 'Terracotta Wide Trousers',
-    price: 112,
-    image1: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80',
-    image2: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=600&q=80',
+    name: 'Pleated Linen Trouser',
+    price: 128,
+    image1: '/generated-assets/luma/luma-product-2a.png',
+    image2: '/generated-assets/luma/luma-product-2b.png',
     sizes: ['XS', 'S', 'M', 'L']
   },
   {
     id: 3,
-    name: 'Sage Knit Cardigan',
-    price: 128,
-    image1: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80',
-    image2: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=600&q=80',
+    name: 'Cable Knit Vest',
+    price: 110,
+    image1: '/generated-assets/luma/luma-product-3a.png',
+    image2: '/generated-assets/luma/luma-product-3b.png',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
     id: 4,
-    name: 'Dusty Blush Scarf',
-    price: 54,
-    image1: 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=80',
-    image2: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?auto=format&fit=crop&w=600&q=80',
+    name: 'Silk Club Bandana',
+    price: 48,
+    image1: '/generated-assets/luma/luma-product-4a.png',
+    image2: '/generated-assets/luma/luma-product-4b.png',
     sizes: ['One Size']
   },
   {
     id: 5,
-    name: 'Cotton Relaxed Tee',
-    price: 48,
-    image1: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80',
-    image2: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=600&q=80',
+    name: 'Relaxed Knit Polo',
+    price: 88,
+    image1: '/generated-assets/luma/luma-product-5a.png',
+    image2: '/generated-assets/luma/luma-product-5b.png',
     sizes: ['XS', 'S', 'M', 'L', 'XL']
   },
   {
     id: 6,
-    name: 'Merino Wool Sweater',
+    name: 'Vintage Cardigan',
     price: 145,
-    image1: 'https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=600&q=80',
-    image2: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80',
+    image1: '/generated-assets/luma/luma-product-6a.png',
+    image2: '/generated-assets/luma/luma-product-6b.png',
     sizes: ['S', 'M', 'L', 'XL']
   }
 ];

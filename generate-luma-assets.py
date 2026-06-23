@@ -42,11 +42,11 @@ IMAGES = [
     ("luma-hero-3", f"{BASE_STYLE}, wide landscape shot, couple playing tennis on a clay court surrounded by cypress trees, vintage wooden rackets, cream cable-knit sweaters draped over a bench, warm haze", "1536x1024"),
 
     # Categories — portrait 1024x1536
-    ("luma-cat-tops", f"{BASE_STYLE}, female model in a cream cotton polo shirt and tailored ivory shorts, standing on a country club lawn, tennis racket under arm, soft portrait", "1024x1536"),
-    ("luma-cat-shop1", f"{BASE_STYLE}, male model in a navy tennis sweater with cream trim and white pleated shorts, leaning on a vintage wooden tennis net post, golden hour portrait", "1024x1536"),
-    ("luma-cat-bottoms", f"{BASE_STYLE}, female model in high-waisted olive tailored shorts and a tucked-in ivory knit top, standing on a garden path, relaxed elegant pose", "1024x1536"),
-    ("luma-cat-shop2", f"{BASE_STYLE}, male model in burgundy merino polo shirt and cream tailored trousers, seated on a weathered garden chair, warm vintage film portrait", "1024x1536"),
-    ("luma-cat-jackets", f"{BASE_STYLE}, female model in a navy quilted jacket layered over a cream cashmere polo, holding a tennis bag over one shoulder, country club entrance background", "1024x1536"),
+    ("luma-category-1", f"{BASE_STYLE}, female model in a cream cotton polo shirt and tailored ivory shorts, standing on a country club lawn, tennis racket under arm, soft portrait", "1024x1536"),
+    ("luma-category-2", f"{BASE_STYLE}, male model in a navy tennis sweater with cream trim and white pleated shorts, leaning on a vintage wooden tennis net post, golden hour portrait", "1024x1536"),
+    ("luma-category-3", f"{BASE_STYLE}, female model in high-waisted olive tailored shorts and a tucked-in ivory knit top, standing on a garden path, relaxed elegant pose", "1024x1536"),
+    ("luma-category-4", f"{BASE_STYLE}, male model in burgundy merino polo shirt and cream tailored trousers, seated on a weathered garden chair, warm vintage film portrait", "1024x1536"),
+    ("luma-category-5", f"{BASE_STYLE}, female model in a navy quilted jacket layered over a cream cashmere polo, holding a tennis bag over one shoulder, country club entrance background", "1024x1536"),
 
     # Featured — landscape 1536x1024
     ("luma-featured", f"{BASE_STYLE}, wide landscape shot, group of four friends gathered at an outdoor country club bar, men in polo shirts and knit sweaters, women in dresses and tennis whites, laughter, citrus cocktails, late afternoon sun", "1536x1024"),
@@ -93,6 +93,9 @@ def generate_image(prompt: str, filename: str, size: str = "1024x1536") -> Path:
 
 def generate_one(item):
     filename, prompt, size = item
+    out_path = OUT_DIR / f"{filename}.png"
+    if out_path.exists():
+        return (filename, "ok", f"skipped (exists): {out_path}")
     try:
         path = generate_image(prompt, filename, size)
         return (filename, "ok", str(path))
