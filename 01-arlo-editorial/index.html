@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARLO — Quiet Editorial Apparel</title>
+  <meta name="description" content="ARLO — quiet, monochrome editorial apparel built to last." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="utility-bar" id="utility-bar" role="banner">
+    <p>Free shipping on orders over $150</p>
+    <button class="utility-close" id="utility-close" aria-label="Close announcement">×</button>
+  </div>
+
+  <header class="site-header" role="banner">
+    <a href="#" class="logo" aria-label="ARLO home">ARLO</a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#women">Women</a>
+      <a href="#men">Men</a>
+      <a href="#collection">Collection</a>
+      <a href="#journal">Journal</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search">⌕</button>
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark theme">◐</button>
+      <button class="icon-btn" id="bag-btn" aria-label="Shopping bag">Bag (<span id="bag-count">0</span>)</button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="split-hero" aria-label="Hero">
+      <div class="split-hero__text">
+        <p class="eyebrow">Season 26</p>
+        <h1 class="split-hero__title">
+          <span>Quiet.</span>
+          <span>Refined.</span>
+          <span>Timeless.</span>
+        </h1>
+        <p class="split-hero__copy">A wardrobe built on restraint — pieces that speak softly and last beyond the season.</p>
+        <a href="#collection" class="btn">Explore the Collection</a>
+      </div>
+      <div class="split-hero__media">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1600&q=80" alt="Monochrome fashion editorial portrait" />
+      </div>
+    </section>
+
+    <section class="manifesto" aria-labelledby="manifesto-heading">
+      <div class="manifesto__inner">
+        <p class="manifesto__label">Our point of view</p>
+        <h2 id="manifesto-heading" class="manifesto__quote">"We believe the best clothes are the ones you reach for without thinking. The ones that improve with wear, and never need to announce themselves."</h2>
+        <p class="manifesto__sig">— The ARLO Atelier</p>
+      </div>
+    </section>
+
+    <section class="categories" id="collection" aria-labelledby="categories-heading">
+      <div class="section-header">
+        <p class="eyebrow">The Collection</p>
+        <h2 id="categories-heading" class="section-title">Shop by Edit</h2>
+      </div>
+      <div class="categories__grid">
+        <a href="#" class="category-card">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Womenswear editorial" />
+          <div class="category-card__overlay">
+            <span class="category-card__title">Women</span>
+            <span class="category-card__cta">Explore →</span>
+          </div>
+        </a>
+        <a href="#" class="category-card">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="Menswear editorial" />
+          <div class="category-card__overlay">
+            <span class="category-card__title">Men</span>
+            <span class="category-card__cta">Explore →</span>
+          </div>
+        </a>
+        <a href="#" class="category-card">
+          <img src="https://images.unsplash.com/photo-1550614000-4b9519e020c9?auto=format&fit=crop&w=800&q=80" alt="Accessories editorial" />
+          <div class="category-card__overlay">
+            <span class="category-card__title">Accessories</span>
+            <span class="category-card__cta">Explore →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="feature-products" aria-labelledby="feature-products-heading">
+      <div class="feature-products__header">
+        <div>
+          <p class="eyebrow">Essentials</p>
+          <h2 id="feature-products-heading" class="section-title">The Quiet Edit</h2>
+        </div>
+        <button class="btn btn--ghost" id="open-drawer">Shop All Essentials</button>
+      </div>
+      <div class="feature-products__scroll" id="feature-scroll">
+        <article class="feature-product">
+          <div class="feature-product__media">
+            <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=600&q=80" alt="Linen trench coat" />
+          </div>
+          <h3>Linen Trench</h3>
+          <p class="feature-product__price">$340</p>
+        </article>
+        <article class="feature-product">
+          <div class="feature-product__media">
+            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80" alt="Cashmere knit" />
+          </div>
+          <h3>Cashmere Knit</h3>
+          <p class="feature-product__price">$260</p>
+        </article>
+        <article class="feature-product">
+          <div class="feature-product__media">
+            <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80" alt="Wide-leg trousers" />
+          </div>
+          <h3>Wide-Leg Trousers</h3>
+          <p class="feature-product__price">$195</p>
+        </article>
+        <article class="feature-product">
+          <div class="feature-product__media">
+            <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?auto=format&fit=crop&w=600&q=80" alt="Silk blouse" />
+          </div>
+          <h3>Silk Blouse</h3>
+          <p class="feature-product__price">$225</p>
+        </article>
+        <article class="feature-product">
+          <div class="feature-product__media">
+            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=600&q=80" alt="Merino scarf" />
+          </div>
+          <h3>Merino Scarf</h3>
+          <p class="feature-product__price">$95</p>
+        </article>
+        <article class="feature-product">
+          <div class="feature-product__media">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80" alt="Tailored blazer" />
+          </div>
+          <h3>Tailored Blazer</h3>
+          <p class="feature-product__price">$420</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lookbook" aria-labelledby="lookbook-heading">
+      <div class="lookbook__header">
+        <p class="eyebrow">Lookbook</p>
+        <h2 id="lookbook-heading" class="section-title">Season 26</h2>
+      </div>
+      <div class="lookbook__grid">
+        <figure class="lookbook__item lookbook__item--tall">
+          <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=800&q=80" alt="Look 1" />
+          <figcaption>Look 01</figcaption>
+        </figure>
+        <figure class="lookbook__item">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80" alt="Look 2" />
+          <figcaption>Look 02</figcaption>
+        </figure>
+        <figure class="lookbook__item">
+          <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=800&q=80" alt="Look 3" />
+          <figcaption>Look 03</figcaption>
+        </figure>
+        <figure class="lookbook__item lookbook__item--wide">
+          <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=80" alt="Look 4" />
+          <figcaption>Look 04</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="craft" aria-labelledby="craft-heading">
+      <div class="craft__inner">
+        <div class="craft__text">
+          <p class="eyebrow">Materials</p>
+          <h2 id="craft-heading" class="section-title">Made to Last</h2>
+          <p>We work with family-run mills in Portugal, Italy, and Japan to source natural fibers that age gracefully. Every seam is considered, every button is corozo, and every garment is finished by hand.</p>
+          <ul class="craft__list">
+            <li>100% natural fibers</li>
+            <li>Corozo buttons</li>
+            <li>Small-batch production</li>
+            <li>Plastic-free packaging</li>
+          </ul>
+        </div>
+        <div class="craft__media">
+          <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?auto=format&fit=crop&w=1000&q=80" alt="Fabric texture detail" />
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Scrolling tagline">
+      <div class="marquee-track">
+        <span>The Quiet Confidence</span>
+        <span>·</span>
+        <span>Season 26</span>
+        <span>·</span>
+        <span>Made to Last</span>
+        <span>·</span>
+        <span>The Quiet Confidence</span>
+        <span>·</span>
+        <span>Season 26</span>
+        <span>·</span>
+        <span>Made to Last</span>
+        <span>·</span>
+      </div>
+    </section>
+
+    <section class="journal" id="journal" aria-labelledby="journal-heading">
+      <div class="section-header">
+        <p class="eyebrow">Journal</p>
+        <h2 id="journal-heading" class="section-title">Notes from the Atelier</h2>
+      </div>
+      <div class="journal__grid">
+        <article class="journal-card">
+          <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80" alt="Journal 1" />
+          <p class="journal-card__date">June 2026</p>
+          <h3>On the Art of Restraint</h3>
+          <p>Why fewer, better pieces will always win.</p>
+          <a href="#" class="text-link">Read more</a>
+        </article>
+        <article class="journal-card">
+          <img src="https://images.unsplash.com/photo-1529139574466-a302d27c1d8b?auto=format&fit=crop&w=800&q=80" alt="Journal 2" />
+          <p class="journal-card__date">May 2026</p>
+          <h3>A Guide to Linen</h3>
+          <p>How our favorite warm-weather fabric is made.</p>
+          <a href="#" class="text-link">Read more</a>
+        </article>
+        <article class="journal-card">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Journal 3" />
+          <p class="journal-card__date">April 2026</p>
+          <h3>The Perfect White Shirt</h3>
+          <p>Finding the balance between structure and ease.</p>
+          <a href="#" class="text-link">Read more</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__grid">
+      <div>
+        <p class="footer-logo">ARLO</p>
+        <p class="footer-tagline">Quiet editorial apparel.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#">Women</a>
+        <a href="#">Men</a>
+        <a href="#">Collection</a>
+        <a href="#">Journal</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Care</a>
+        <a href="#">Contact</a>
+      </nav>
+      <form class="newsletter" onsubmit="event.preventDefault();">
+        <label for="newsletter-email">Newsletter</label>
+        <div class="newsletter__row">
+          <input id="newsletter-email" type="email" placeholder="your@email.com" autocomplete="email" />
+          <button type="submit" class="btn">Subscribe</button>
+        </div>
+      </form>
+    </div>
+    <p class="copyright">© 2026 ARLO. All rights reserved.</p>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="product-drawer" id="product-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 id="drawer-title">Essentials</h2>
+      <button class="drawer-close" id="drawer-close" aria-label="Close drawer">×</button>
+    </div>
+    <div class="drawer-grid" id="drawer-grid">
+      <!-- Populated by JS -->
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>

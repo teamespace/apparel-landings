@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMA — Made to Live In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="#" class="logo" aria-label="LUMA home">LUMA</a>
+    <nav class="main-nav" aria-label="Main">
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#new">New Arrivals</a></li>
+        <li><a href="#wardrobe">Wardrobe</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <button class="cart-btn" id="cart-btn" aria-label="Cart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 5 3H2"/></svg>
+      <span class="cart-count" id="cart-count" data-count="0" aria-label="Items in cart">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="new" aria-label="New arrivals">
+      <div class="hero-cards">
+        <article class="hero-card">
+          <div class="hero-card__media">
+            <img class="hero-card__bg" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Woman wearing a relaxed linen set in natural light" loading="eager">
+          </div>
+          <div class="hero-card__overlay">
+            <p class="eyebrow">New Arrivals</p>
+            <h2>The Linen Set</h2>
+            <a href="#wardrobe" class="link-underline">Shop now</a>
+          </div>
+        </article>
+        <article class="hero-card">
+          <div class="hero-card__media">
+            <img class="hero-card__bg" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=80" alt="Layered cream knitwear over linen trousers" loading="eager">
+          </div>
+          <div class="hero-card__overlay">
+            <p class="eyebrow">Seasonal</p>
+            <h2>The Knitwear</h2>
+            <a href="#wardrobe" class="link-underline">Shop now</a>
+          </div>
+        </article>
+        <article class="hero-card">
+          <div class="hero-card__media">
+            <img class="hero-card__bg" src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=80" alt="Loungewear styled in warm sunlight" loading="eager">
+          </div>
+          <div class="hero-card__overlay">
+            <p class="eyebrow">Comfort</p>
+            <h2>The Loungewear</h2>
+            <a href="#wardrobe" class="link-underline">Shop now</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="editorial" id="about">
+      <p class="eyebrow">LUMA Lifestyle</p>
+      <h1>Made to Live In</h1>
+      <p class="editorial__copy">Soft silhouettes, natural fibers, and pieces that move with your day. Designed for the slow moments and the busy ones.</p>
+    </section>
+
+    <section class="press" aria-label="Press">
+      <p class="press__title">As seen in</p>
+      <div class="marquee">
+        <div class="marquee__track">
+          <span>Vogue</span><span>Elle</span><span>Harper’s Bazaar</span><span>Vanity Fair</span><span>Who What Wear</span><span>InStyle</span>
+          <span>Vogue</span><span>Elle</span><span>Harper’s Bazaar</span><span>Vanity Fair</span><span>Who What Wear</span><span>InStyle</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="journal">
+      <div class="story__image">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80" alt="Folded natural linen garments on a wooden table in warm light">
+      </div>
+      <div class="story__text">
+        <p class="eyebrow">Our Story</p>
+        <h2>Clothes with a Quieter Rhythm</h2>
+        <p>LUMA began with a simple idea: what if getting dressed felt like a deep breath? We design small collections in natural palettes, cut from organic cotton, linen, and responsibly sourced wool. Each piece is made to be lived in, mended, and loved for years.</p>
+        <a href="#" class="link-underline">Read our journal</a>
+      </div>
+    </section>
+
+    <section class="experiences" aria-labelledby="experiences-heading">
+      <div class="section-header">
+        <p class="eyebrow">Curated Guides</p>
+        <h2 id="experiences-heading">The LUMA Edit</h2>
+      </div>
+      <div class="experience-grid">
+        <article class="experience-card">
+          <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Close-up of linen fabric texture">
+          <div class="experience-card__body">
+            <h3>The Linen Edit</h3>
+            <p>Breathable tailoring that moves from morning errands to evening plans.</p>
+            <a href="#" class="link-underline">Read the guide</a>
+          </div>
+        </article>
+        <article class="experience-card">
+          <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80" alt="Detail of a soft knit cardigan">
+          <div class="experience-card__body">
+            <h3>The Knit Guide</h3>
+            <p>Layering essentials for the in-between days and cozy nights in.</p>
+            <a href="#" class="link-underline">Read the guide</a>
+          </div>
+        </article>
+        <article class="experience-card">
+          <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80" alt="Loungewear flatlay in soft natural tones">
+          <div class="experience-card__body">
+            <h3>The Loungewear Ritual</h3>
+            <p>Slow mornings deserve pieces that feel like a deep breath.</p>
+            <a href="#" class="link-underline">Read the guide</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="products" id="wardrobe" aria-labelledby="products-heading">
+      <div class="section-header">
+        <p class="eyebrow">The Wardrobe</p>
+        <h2 id="products-heading">Featured Pieces</h2>
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <section class="social" aria-labelledby="social-heading">
+      <div class="section-header">
+        <p class="eyebrow">@luma</p>
+        <h2 id="social-heading">Follow Along</h2>
+      </div>
+      <div class="social-grid">
+        <a href="#" class="social-item social-item--tall"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Editorial street style in a neutral palette"></a>
+        <a href="#" class="social-item"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=80" alt="Portrait in flowing natural fabric"></a>
+        <a href="#" class="social-item"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Relaxed linen look on a model"></a>
+        <a href="#" class="social-item social-item--tall"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80" alt="Cream knit layered over linen trousers"></a>
+        <a href="#" class="social-item"><img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=600&q=80" alt="Relaxed tailoring in warm sunlight"></a>
+        <a href="#" class="social-item"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80" alt="Folded linen garments on a wooden table"></a>
+        <a href="#" class="social-item social-item--cta"><span>Follow @luma</span></a>
+      </div>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">Join the LUMA circle</h2>
+      <p>New arrivals, slow-living notes, and first access to small batches.</p>
+      <form class="newsletter-form" id="newsletter-form" action="#" method="post">
+        <label for="email" class="visually-hidden">Email address</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+      <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__inner">
+      <div class="footer-brand">
+        <span class="logo">LUMA</span>
+        <p>Made to live in.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Care</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 LUMA Lifestyle. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="quick-view" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close aria-label="Close quick view">&times;</button>
+      <div class="modal-layout">
+        <img id="modal-img" src="" alt="">
+        <div class="modal-info">
+          <span class="eyebrow">Quick View</span>
+          <h2 id="modal-title"></h2>
+          <p class="modal-price" id="modal-price"></p>
+          <p id="modal-desc"></p>
+          <fieldset class="size-options">
+            <legend>Select size</legend>
+            <div class="sizes" id="modal-sizes"></div>
+          </fieldset>
+          <button class="btn btn-wide" id="add-to-bag">Add to Bag</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KILT — Unfinished</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="top-bar">NEW DROP LIVE — WORLDWIDE SHIPPING</div>
+
+  <header class="site-header">
+    <a href="#" class="logo">KILT</a>
+    <nav aria-label="Primary">
+      <a href="#shop">SHOP</a>
+      <a href="#categories">CATEGORIES</a>
+      <a href="#manifesto">MANIFESTO</a>
+      <a href="#newsletter">JOIN</a>
+    </nav>
+    <button class="cart-toggle" aria-label="Open cart" aria-controls="cart-drawer" aria-expanded="false">
+      <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M6 6h15l-1.5 9h-12z" />
+        <circle cx="9" cy="20" r="1.5" fill="currentColor" stroke="none" />
+        <circle cx="18" cy="20" r="1.5" fill="currentColor" stroke="none" />
+        <path d="M6 6L5 3H2" />
+      </svg>
+      <span>CART</span>
+      <span class="cart-badge" id="cart-badge" aria-label="Cart items">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="video-hero" aria-label="Campaign video">
+      <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=1600&q=80" alt="Model in a long black coat against brutalist architecture" loading="eager" />
+      <div class="grain" aria-hidden="true"></div>
+      <div class="video-overlay"></div>
+      <div class="hero-content">
+        <h1>UNFINISHED</h1>
+        <button class="play-btn" id="play-btn" aria-label="Play campaign video">
+          <span class="play-triangle" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="campaign-blurb" aria-label="Campaign statement">
+      <p>Football fever. Raw energy. No polish.</p>
+    </section>
+
+    <section class="categories" id="categories" aria-labelledby="categories-heading">
+      <h2 id="categories-heading" class="section-title">CATEGORIES</h2>
+      <div class="category-grid">
+        <a href="#shop" class="category-card">
+          <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=800&q=80" alt="White graphic tee hanging on a hanger" loading="lazy" />
+          <span class="category-label">TEES</span>
+        </a>
+        <a href="#shop" class="category-card">
+          <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80" alt="Heavy outerwear jacket on a rack" loading="lazy" />
+          <span class="category-label">OUTERWEAR</span>
+        </a>
+        <a href="#shop" class="category-card">
+          <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&q=80" alt="Sunglasses and accessories on a neutral surface" loading="lazy" />
+          <span class="category-label">ACCESSORIES</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>KILT · RAW · SYSTEM · DROP 07 ·&nbsp;</span>
+        <span>KILT · RAW · SYSTEM · DROP 07 ·&nbsp;</span>
+        <span>KILT · RAW · SYSTEM · DROP 07 ·&nbsp;</span>
+        <span>KILT · RAW · SYSTEM · DROP 07 ·&nbsp;</span>
+      </div>
+    </div>
+
+    <section class="products" id="shop" aria-labelledby="shop-heading">
+      <h2 id="shop-heading" class="section-title">DROP 07</h2>
+      <div class="product-grid" id="product-grid">
+        <!-- Products rendered by JS -->
+      </div>
+    </section>
+
+    <section class="manifesto" id="manifesto" aria-labelledby="manifesto-heading">
+      <div class="manifesto-inner">
+        <h2 id="manifesto-heading">KILT IS A SYSTEM, NOT A STYLE.</h2>
+        <ul class="rule-list">
+          <li>No seasonal reset.</li>
+          <li>No softened edges.</li>
+          <li>No algorithm.</li>
+          <li>No polish.</li>
+          <li>No apology.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="lookbook" aria-label="Lookbook">
+      <h2 class="section-title">LOOKBOOK</h2>
+      <div class="lookbook-grid">
+        <figure class="lookbook-item">
+          <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=1000&q=80" alt="Stark editorial portrait in monochrome" loading="lazy" />
+        </figure>
+        <figure class="lookbook-item">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1000&q=80" alt="High contrast streetwear editorial shot" loading="lazy" />
+        </figure>
+        <figure class="lookbook-item">
+          <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=1000&q=80" alt="Model in raw cut outerwear" loading="lazy" />
+        </figure>
+        <figure class="lookbook-item">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1000&q=80" alt="Editorial streetwear look with shopping bags" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">GET THE DROP</h2>
+      <form class="signup" id="signup-form" novalidate>
+        <label for="email">EMAIL ADDRESS</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 KILT. NO RIGHTS RESERVED.</p>
+    <p>Built with borders, not polish.</p>
+  </footer>
+
+  <div class="cart-overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-header">
+      <h2>CART</h2>
+      <button class="cart-close" aria-label="Close cart">CLOSE</button>
+    </div>
+    <div class="cart-body" id="cart-body">
+      <p class="cart-empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>TOTAL</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <button class="checkout" id="checkout-btn">CHECKOUT</button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
