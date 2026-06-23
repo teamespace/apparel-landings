@@ -10,6 +10,7 @@ const products = [
     price: 98,
     image1: '/generated-assets/luma/luma-product-1a.png?v=2',
     image2: '/generated-assets/luma/luma-product-1b.png?v=2',
+    showcaseImage: '/generated-assets/luma/luma-showcase-1.png?v=2',
     sizes: ['XS', 'S', 'M', 'L', 'XL']
   },
   {
@@ -18,6 +19,7 @@ const products = [
     price: 128,
     image1: '/generated-assets/luma/luma-product-2a.png?v=2',
     image2: '/generated-assets/luma/luma-product-2b.png?v=2',
+    showcaseImage: '/generated-assets/luma/luma-showcase-2.png?v=2',
     sizes: ['XS', 'S', 'M', 'L']
   },
   {
@@ -26,6 +28,7 @@ const products = [
     price: 110,
     image1: '/generated-assets/luma/luma-product-3a.png?v=2',
     image2: '/generated-assets/luma/luma-product-3b.png?v=2',
+    showcaseImage: '/generated-assets/luma/luma-showcase-3.png?v=2',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
@@ -34,6 +37,7 @@ const products = [
     price: 48,
     image1: '/generated-assets/luma/luma-product-4a.png?v=2',
     image2: '/generated-assets/luma/luma-product-4b.png?v=2',
+    showcaseImage: '/generated-assets/luma/luma-showcase-4.png?v=2',
     sizes: ['One Size']
   },
   {
@@ -42,6 +46,7 @@ const products = [
     price: 88,
     image1: '/generated-assets/luma/luma-product-5a.png?v=2',
     image2: '/generated-assets/luma/luma-product-5b.png?v=2',
+    showcaseImage: '/generated-assets/luma/luma-showcase-5.png?v=2',
     sizes: ['XS', 'S', 'M', 'L', 'XL']
   },
   {
@@ -50,6 +55,7 @@ const products = [
     price: 145,
     image1: '/generated-assets/luma/luma-product-6a.png?v=2',
     image2: '/generated-assets/luma/luma-product-6b.png?v=2',
+    showcaseImage: '/generated-assets/luma/luma-showcase-6.png?v=2',
     sizes: ['S', 'M', 'L', 'XL']
   }
 ];
@@ -220,6 +226,22 @@ function renderProducts() {
         <img class="product-card__img product-card__img--secondary" src="${p.image2}" alt="${p.name} alternate view" loading="lazy">
       </div>
       <div class="product-card__meta">
+        <h3>${p.name}</h3>
+        <p>${formatPrice(p.price)}</p>
+      </div>
+    </article>
+  `).join('');
+}
+
+function renderShowcase() {
+  const container = $('#showcase-grid');
+  if (!container) return;
+  container.innerHTML = products.map(p => `
+    <article class="showcase-card" data-id="${p.id}" tabindex="0" role="button" aria-label="Open quick view for ${p.name}">
+      <div class="showcase-card__media">
+        <img src="${p.showcaseImage}" alt="${p.name}" loading="lazy">
+      </div>
+      <div class="showcase-card__meta">
         <h3>${p.name}</h3>
         <p>${formatPrice(p.price)}</p>
       </div>
@@ -568,8 +590,31 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+function initShowcase() {
+  const container = $('#showcase-grid');
+  if (!container) return;
+
+  container.addEventListener('click', (e) => {
+    const card = e.target.closest('.showcase-card');
+    if (!card) return;
+    const product = products.find(p => p.id === Number(card.dataset.id));
+    if (product) openQuickView(product);
+  });
+
+  container.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const card = e.target.closest('.showcase-card');
+      if (!card) return;
+      e.preventDefault();
+      const product = products.find(p => p.id === Number(card.dataset.id));
+      if (product) openQuickView(product);
+    }
+  });
+}
+
 function init() {
   renderProducts();
+  renderShowcase();
   initProductHover();
   initAnnouncementBar();
   initHeaderScroll();
@@ -580,6 +625,7 @@ function init() {
   initNewsletter();
   initCartDrawer();
   initQuickView();
+  initShowcase();
   updateCartCount();
 }
 
