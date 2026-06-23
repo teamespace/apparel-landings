@@ -8,48 +8,48 @@ const products = [
     id: 1,
     name: 'Cotton Tennis Sweater',
     price: 98,
-    image1: '/generated-assets/luma/luma-product-1a.png',
-    image2: '/generated-assets/luma/luma-product-1b.png',
+    image1: '/generated-assets/luma/luma-product-1a.png?v=2',
+    image2: '/generated-assets/luma/luma-product-1b.png?v=2',
     sizes: ['XS', 'S', 'M', 'L', 'XL']
   },
   {
     id: 2,
     name: 'Pleated Linen Trouser',
     price: 128,
-    image1: '/generated-assets/luma/luma-product-2a.png',
-    image2: '/generated-assets/luma/luma-product-2b.png',
+    image1: '/generated-assets/luma/luma-product-2a.png?v=2',
+    image2: '/generated-assets/luma/luma-product-2b.png?v=2',
     sizes: ['XS', 'S', 'M', 'L']
   },
   {
     id: 3,
     name: 'Cable Knit Vest',
     price: 110,
-    image1: '/generated-assets/luma/luma-product-3a.png',
-    image2: '/generated-assets/luma/luma-product-3b.png',
+    image1: '/generated-assets/luma/luma-product-3a.png?v=2',
+    image2: '/generated-assets/luma/luma-product-3b.png?v=2',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
     id: 4,
     name: 'Silk Club Bandana',
     price: 48,
-    image1: '/generated-assets/luma/luma-product-4a.png',
-    image2: '/generated-assets/luma/luma-product-4b.png',
+    image1: '/generated-assets/luma/luma-product-4a.png?v=2',
+    image2: '/generated-assets/luma/luma-product-4b.png?v=2',
     sizes: ['One Size']
   },
   {
     id: 5,
     name: 'Relaxed Knit Polo',
     price: 88,
-    image1: '/generated-assets/luma/luma-product-5a.png',
-    image2: '/generated-assets/luma/luma-product-5b.png',
+    image1: '/generated-assets/luma/luma-product-5a.png?v=2',
+    image2: '/generated-assets/luma/luma-product-5b.png?v=2',
     sizes: ['XS', 'S', 'M', 'L', 'XL']
   },
   {
     id: 6,
     name: 'Vintage Cardigan',
     price: 145,
-    image1: '/generated-assets/luma/luma-product-6a.png',
-    image2: '/generated-assets/luma/luma-product-6b.png',
+    image1: '/generated-assets/luma/luma-product-6a.png?v=2',
+    image2: '/generated-assets/luma/luma-product-6b.png?v=2',
     sizes: ['S', 'M', 'L', 'XL']
   }
 ];
