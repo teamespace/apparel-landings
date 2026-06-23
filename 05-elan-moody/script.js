@@ -53,6 +53,26 @@
     setInterval(() => showSlide(current + 1), 4000);
   }
 
+  // Collection drag-to-scroll
+  const collectionScroll = document.getElementById('collection-scroll');
+  if (collectionScroll) {
+    let isDown = false, startX, scrollLeft;
+    collectionScroll.addEventListener('mousedown', (e) => {
+      isDown = true;
+      collectionScroll.classList.add('is-dragging');
+      startX = e.pageX - collectionScroll.offsetLeft;
+      scrollLeft = collectionScroll.scrollLeft;
+    });
+    collectionScroll.addEventListener('mouseleave', () => { isDown = false; collectionScroll.classList.remove('is-dragging'); });
+    collectionScroll.addEventListener('mouseup', () => { isDown = false; collectionScroll.classList.remove('is-dragging'); });
+    collectionScroll.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - collectionScroll.offsetLeft;
+      collectionScroll.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+  }
+
   // Wishlist toggle
   document.querySelectorAll('.wishlist-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
