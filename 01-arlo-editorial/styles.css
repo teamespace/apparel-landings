@@ -233,6 +233,7 @@ a { color: inherit; text-decoration: none; }
   text-shadow: 0 2px 16px rgba(0,0,0,0.45);
 }
 .hero-slide__subtitle {
+  font-family: var(--font-sans);
   font-size: clamp(0.9rem, 1.5vw, 1.15rem);
   font-weight: 300;
   margin: 0 0 1.25rem;
@@ -241,6 +242,7 @@ a { color: inherit; text-decoration: none; }
 .hero-slide__cta {
   display: inline-block;
   padding: 0.875rem 1.75rem;
+  font-family: var(--font-sans);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -644,7 +646,7 @@ a { color: inherit; text-decoration: none; }
   .collection-showcase { grid-template-columns: 1fr 1fr; }
   .collection-showcase__product { padding: 4rem 2rem; }
   .collection-showcase__model { min-height: auto; }
-  .lookbook__grid { grid-template-columns: repeat(2, 1fr); }
+  .lookbook__grid { grid-template-columns: repeat(3, 1fr); }
   .lookbook__item--wide { grid-column: span 2; }
   .lookbook__item--tall { grid-row: span 2; }
   .craft__inner { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
