@@ -6,7 +6,7 @@
   <title>ÉLAN — Retro Football Jerseys</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,386 +14,247 @@
 
   <header class="site-header" id="top">
     <div class="header-inner">
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
-      </button>
-
-      <a class="logo" href="#top" aria-label="ÉLAN home">ÉLAN</a>
-
       <nav class="main-nav" aria-label="Primary">
-        <a href="#new">New Arrivals</a>
-        <a href="#clubs">Club Jerseys</a>
-        <a href="#nations">National Teams</a>
-        <a href="#retro">Retro Collection</a>
-        <a href="#sale" class="nav-sale">Sale: Up to -50%</a>
+        <a href="#shop">Shop</a>
+        <a href="#exclusives">Exclusives</a>
+        <a href="#community">Community</a>
       </nav>
 
+      <a class="logo" href="#top" aria-label="ÉLAN home">Élan</a>
+
       <div class="header-actions">
-        <button class="icon-btn" aria-label="Search">
-          <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
-        </button>
-        <button class="icon-btn" aria-label="Favourites">
-          <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32Z"></path></svg>
-        </button>
-        <button class="icon-btn cart-btn" aria-label="Cart">
-          <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,64H176a48,48,0,0,0-96,0H40A16,16,0,0,0,24,80V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V80A16,16,0,0,0,216,64ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32Zm56,128H160a8,8,0,0,1,0-16h24a8,8,0,0,1,0,16Zm-72,0H72a8,8,0,0,1,0-16h40a8,8,0,0,1,0,16Z"></path></svg>
-          <span class="cart-count">0</span>
-        </button>
+        <button class="icon-btn" aria-label="Currency and language">€ NL/EN</button>
+        <button class="icon-btn" aria-label="Search">Search</button>
+        <button class="icon-btn" aria-label="Account">Account</button>
+        <button class="icon-btn" aria-label="Favourites">Favourites<sup>0</sup></button>
+        <button class="icon-btn cart-btn" aria-label="Cart">Cart<sup>0</sup></button>
       </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+      </button>
     </div>
 
     <div class="mobile-menu" id="mobile-menu" hidden>
       <div class="mobile-menu__header">
-        <a class="logo" href="#top">ÉLAN</a>
+        <a class="logo" href="#top">Élan</a>
         <button class="menu-close" id="menu-close" aria-label="Close menu">
-          <svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
         </button>
       </div>
       <nav class="mobile-nav" aria-label="Mobile primary">
-        <a href="#new">New Arrivals</a>
-        <a href="#clubs">Club Jerseys</a>
-        <a href="#nations">National Teams</a>
-        <a href="#retro">Retro Collection</a>
-        <a href="#sale" class="nav-sale">Sale: Up to -50%</a>
+        <a href="#shop">Shop</a>
+        <a href="#exclusives">Exclusives</a>
+        <a href="#community">Community</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero-carousel" aria-label="Featured collections">
-      <div class="hero-slide is-active" data-slide="0">
-        <div class="hero-media">
-          <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1920&q=80" alt="Retro football collection on pitch" loading="eager" decoding="async">
-        </div>
-        <div class="hero-content">
-          <p class="eyebrow">Summer Sale</p>
-          <h1 class="hero-title">Up to 50% off retro classics</h1>
-          <a href="#sale" class="cta-btn">Explore the full selection</a>
-        </div>
+    <section class="hero" aria-label="Featured drop">
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1920&q=80" alt="Model wearing retro football jersey in stadium" loading="eager" decoding="async" onerror="this.style.display='none'">
       </div>
-      <div class="hero-slide" data-slide="1">
-        <div class="hero-media">
-          <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1920&q=80" alt="Stadium atmosphere" loading="lazy" decoding="async">
-        </div>
-        <div class="hero-content">
-          <p class="eyebrow">New Arrivals</p>
-          <h1 class="hero-title">See the full collection</h1>
-          <a href="#new" class="cta-btn">Shop now</a>
-        </div>
-      </div>
-      <div class="hero-slide" data-slide="2">
-        <div class="hero-media">
-          <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1920&q=80" alt="Football passion" loading="lazy" decoding="async">
-        </div>
-        <div class="hero-content">
-          <p class="eyebrow">National Teams</p>
-          <h1 class="hero-title">Wear your colours with pride</h1>
-          <a href="#nations" class="cta-btn">Shop now</a>
-        </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Online Exclusive</p>
+        <h1 class="hero-title">Élan x Legends<br>Collection</h1>
+        <a href="#shop" class="hero-cta">Shop</a>
       </div>
 
-      <div class="hero-dots">
-        <button class="is-active" aria-label="Go to slide 1" data-slide="0"></button>
-        <button aria-label="Go to slide 2" data-slide="1"></button>
-        <button aria-label="Go to slide 3" data-slide="2"></button>
+      <div class="hero-product-card" id="hero-product-card">
+        <button class="product-card__prev" aria-label="Previous product">&#10094;</button>
+        <div class="product-card__slides">
+          <div class="product-card__slide is-active">
+            <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=400&q=80" alt="Air Jordan 4 Retro" loading="lazy" onerror="this.style.display='none'">
+            <div class="product-card__info">
+              <p class="product-card__label">Worth €149,00</p>
+              <p class="product-card__name">Italia '90 Home</p>
+            </div>
+          </div>
+          <div class="product-card__slide">
+            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=400&q=80" alt="Nike Dunk Low" loading="lazy" onerror="this.style.display='none'">
+            <div class="product-card__info">
+              <p class="product-card__label">Worth €129,00</p>
+              <p class="product-card__name">Holland '88 Away</p>
+            </div>
+          </div>
+          <div class="product-card__slide">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80" alt="Adidas Samba" loading="lazy" onerror="this.style.display='none'">
+            <div class="product-card__info">
+              <p class="product-card__label">Worth €110,00</p>
+              <p class="product-card__name">Brazil '82 Home</p>
+            </div>
+          </div>
+        </div>
+        <button class="product-card__next" aria-label="Next product">&#10095;</button>
       </div>
     </section>
 
-    <section class="promo-grid" aria-label="Promotions">
-      <a href="#new" class="promo-card promo-card--large reveal">
-        <img src="https://images.unsplash.com/photo-1522778119026-d647f0565c6a?auto=format&fit=crop&w=1200&q=80" alt="New arrivals" loading="lazy">
-        <div class="promo-card__content">
-          <p class="eyebrow">New Arrivals</p>
-          <h2>See the full collection</h2>
-        </div>
-      </a>
-      <a href="#nations" class="promo-card reveal">
-        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="National teams" loading="lazy">
-        <div class="promo-card__content">
-          <p class="eyebrow">National Teams</p>
-          <h2>Shop now</h2>
-        </div>
-      </a>
-      <a href="#retro" class="promo-card reveal">
-        <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=800&q=80" alt="Retro collection" loading="lazy">
-        <div class="promo-card__content">
-          <p class="eyebrow">Retro Collection</p>
-          <h2>Explore the full selection</h2>
-        </div>
-      </a>
-    </section>
-
-    <section class="trend-section" id="football-fever" aria-labelledby="trend-title">
-      <div class="trend-header">
-        <div class="trend-text reveal">
-          <h2 id="trend-title">Football fever</h2>
-          <p>It’s football season — a universal language bringing fans together across the world. Explore new arrivals inspired by the energy, movement and team spirit of the game.</p>
-          <a href="#" class="text-link">See full selection</a>
-        </div>
+    <div class="marquee-bar" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Free shipping on orders above €250</span>
+        <span>Free shipping on orders above €250</span>
+        <span>Free shipping on orders above €250</span>
+        <span>Free shipping on orders above €250</span>
+        <span>Free shipping on orders above €250</span>
+        <span>Free shipping on orders above €250</span>
+        <span>Free shipping on orders above €250</span>
+        <span>Free shipping on orders above €250</span>
       </div>
-      <div class="product-scroll" id="product-scroll-1">
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80" alt="Italia 90 Home Jersey" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Italia 90 Home to favourites">♡</button>
-          </div>
-          <div class="product-info">
-            <h3>Italia '90 Home</h3>
-            <p class="product-price">From €89.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span class="size-soldout">L</span><span>XL</span>
-            </div>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80" alt="Holland 88 Away Jersey" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Holland 88 Away to favourites">♡</button>
-          </div>
-          <div class="product-info">
-            <h3>Holland '88 Away</h3>
-            <p class="product-price">From €95.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span>L</span><span>XL</span><span>XXL</span>
-            </div>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Brazil 82 Home Jersey" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Brazil 82 Home to favourites">♡</button>
-          </div>
-          <div class="product-info">
-            <h3>Brazil '82 Home</h3>
-            <p class="product-price">From €102.00</p>
-            <div class="product-sizes">
-              <span>S</span><span class="size-soldout">M</span><span>L</span><span>XL</span>
-            </div>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80" alt="Arsenal 89 Home Jersey" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Arsenal 89 Home to favourites">♡</button>
-          </div>
-          <div class="product-info">
-            <h3>Arsenal '89 Home</h3>
-            <p class="product-price">From €89.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span>L</span><span class="size-soldout">XL</span>
-            </div>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80" alt="Nigeria 94 Away Jersey" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Nigeria 94 Away to favourites">♡</button>
-          </div>
-          <div class="product-info">
-            <h3>Nigeria '94 Away</h3>
-            <p class="product-price">From €99.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span>L</span><span>XL</span><span>XXL</span>
-            </div>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80" alt="Germany 90 Home Jersey" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Germany 90 Home to favourites">♡</button>
-          </div>
-          <div class="product-info">
-            <h3>Germany '90 Home</h3>
-            <p class="product-price">From €95.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span>L</span><span>XL</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+    </div>
 
-    <section class="split-categories" aria-label="Shop by category">
-      <a href="#clubs" class="split-card reveal">
-        <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=900&q=80" alt="Club jerseys">
-        <div class="split-card__content">
-          <p class="eyebrow">Shop by club</p>
-          <h2>Club Jerseys</h2>
-        </div>
-      </a>
-      <a href="#nations" class="split-card reveal">
-        <img src="https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?auto=format&fit=crop&w=900&q=80" alt="National teams">
-        <div class="split-card__content">
-          <p class="eyebrow">Shop by nation</p>
-          <h2>National Teams</h2>
-        </div>
-      </a>
-    </section>
-
-    <section class="product-carousel-section" id="new" aria-labelledby="new-drops-title">
+    <section class="product-section" id="shop" aria-labelledby="new-title">
       <div class="section-header reveal">
-        <h2 id="new-drops-title">New arrivals</h2>
-        <a href="#" class="text-link">See full collection</a>
+        <h2 id="new-title">New Arrivals</h2>
       </div>
-      <div class="product-scroll" id="product-scroll-2">
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80" alt="Cruyff 74 Away" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Cruyff 74 Away to favourites">♡</button>
+      <div class="product-grid">
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80" alt="Italia 90 Home Jersey" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
           </div>
-          <div class="product-info">
-            <h3>Cruyff '74 Away</h3>
-            <p class="product-price">From €105.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span>L</span><span>XL</span>
-            </div>
+          <div class="product-tile__info">
+            <h3>Italia '90 Home</h3>
+            <p class="price">€89,00</p>
           </div>
         </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80" alt="France 98 Home" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add France 98 Home to favourites">♡</button>
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80" alt="Holland 88 Away Jersey" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
           </div>
-          <div class="product-info">
+          <div class="product-tile__info">
+            <h3>Holland '88 Away</h3>
+            <p class="price">€95,00</p>
+          </div>
+        </article>
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Brazil 82 Home Jersey" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
+          </div>
+          <div class="product-tile__info">
+            <h3>Brazil '82 Home</h3>
+            <p class="price">€102,00</p>
+          </div>
+        </article>
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80" alt="Arsenal 89 Home Jersey" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
+          </div>
+          <div class="product-tile__info">
+            <h3>Arsenal '89 Home</h3>
+            <p class="price">€89,00</p>
+          </div>
+        </article>
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80" alt="Nigeria 94 Away Jersey" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
+          </div>
+          <div class="product-tile__info">
+            <h3>Nigeria '94 Away</h3>
+            <p class="price">€99,00</p>
+          </div>
+        </article>
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80" alt="Germany 90 Home Jersey" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
+          </div>
+          <div class="product-tile__info">
+            <h3>Germany '90 Home</h3>
+            <p class="price">€95,00</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="editorial-section" id="exclusives" aria-labelledby="exclusives-title">
+      <div class="editorial-image reveal">
+        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1400&q=80" alt="Élan exclusive editorial" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="editorial-text reveal">
+        <h2 id="exclusives-title">The beautiful game,<br>reborn.</h2>
+        <p>Authentic retro kits from the golden era. Hand-picked, premium quality, made to stand out on and off the pitch.</p>
+        <a href="#" class="text-link">Explore the collection</a>
+      </div>
+    </section>
+
+    <section class="product-section" aria-labelledby="trending-title">
+      <div class="section-header reveal">
+        <h2 id="trending-title">Trending Now</h2>
+      </div>
+      <div class="product-grid">
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="France 98 Home" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
+          </div>
+          <div class="product-tile__info">
             <h3>France '98 Home</h3>
-            <p class="product-price">From €98.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span class="size-soldout">L</span><span>XL</span>
-            </div>
+            <p class="price">€98,00</p>
           </div>
         </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Cameroon 90 Home" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Cameroon 90 Home to favourites">♡</button>
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="Cameroon 90 Home" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
           </div>
-          <div class="product-info">
+          <div class="product-tile__info">
             <h3>Cameroon '90 Home</h3>
-            <p class="product-price">From €110.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span>L</span><span>XL</span><span>XXL</span>
-            </div>
+            <p class="price">€110,00</p>
           </div>
         </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80" alt="Milan 88 Home" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Milan 88 Home to favourites">♡</button>
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=600&q=80" alt="England 96 Away" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
           </div>
-          <div class="product-info">
-            <h3>Milan '88 Home</h3>
-            <p class="product-price">From €95.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span>L</span><span>XL</span>
-            </div>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80" alt="England 96 Away" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add England 96 Away to favourites">♡</button>
-          </div>
-          <div class="product-info">
+          <div class="product-tile__info">
             <h3>England '96 Away</h3>
-            <p class="product-price">From €102.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span>L</span><span class="size-soldout">XL</span>
-            </div>
+            <p class="price">€102,00</p>
           </div>
         </article>
-        <article class="product-card">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80" alt="Portugal 04 Home" loading="lazy">
-            <button class="wishlist-btn" aria-label="Add Portugal 04 Home to favourites">♡</button>
+        <article class="product-tile reveal">
+          <div class="product-tile__image">
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80" alt="Milan 88 Home" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0'">
+            <button class="wishlist-btn" aria-label="Add to favourites">♡</button>
           </div>
-          <div class="product-info">
-            <h3>Portugal '04 Home</h3>
-            <p class="product-price">From €89.00</p>
-            <div class="product-sizes">
-              <span>S</span><span>M</span><span>L</span><span>XL</span>
-            </div>
+          <div class="product-tile__info">
+            <h3>Milan '88 Home</h3>
+            <p class="price">€95,00</p>
           </div>
         </article>
-      </div>
-    </section>
-
-    <section class="editorial-feature" aria-label="The beautiful game">
-      <div class="editorial-feature__inner">
-        <div class="editorial-feature__image reveal">
-          <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1200&q=80" alt="Retro jerseys collection" loading="lazy">
-        </div>
-        <div class="editorial-feature__text reveal">
-          <h2>The beautiful game, reborn.</h2>
-          <p>Explore our world of retro jerseys and get to know our fits, qualities and eras — making it easy to find the perfect kit for your collection.</p>
-          <a href="#" class="cta-btn">Explore retro guide</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="split-categories" aria-label="More categories">
-      <a href="#" class="split-card reveal">
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80" alt="Training wear">
-        <div class="split-card__content">
-          <p class="eyebrow">Performance</p>
-          <h2>Training</h2>
-        </div>
-      </a>
-      <a href="#" class="split-card reveal">
-        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Lifestyle wear">
-        <div class="split-card__content">
-          <p class="eyebrow">Off-pitch</p>
-          <h2>Lifestyle</h2>
-        </div>
-      </a>
-    </section>
-
-    <section class="newsletter" aria-labelledby="newsletter-title">
-      <div class="newsletter-inner">
-        <h2 id="newsletter-title" class="reveal">Join our newsletter and enjoy 10% off your first order*</h2>
-        <p class="reveal">Stay updated on collection launches, latest news, and exclusive offers.</p>
-        <form class="newsletter-form reveal" onsubmit="event.preventDefault();">
-          <label for="email" class="visually-hidden">Email address</label>
-          <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email">
-          <button type="submit">Sign up</button>
-        </form>
-        <label class="newsletter-terms reveal">
-          <input type="checkbox" required>
-          <span>I accept the terms and conditions</span>
-        </label>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-grid">
+    <div class="footer-inner">
       <div class="footer-col">
         <h3>Help</h3>
-        <ul>
-          <li><a href="#">Terms and Conditions</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Size Guide</a>
+        <a href="#">Contact</a>
       </div>
       <div class="footer-col">
-        <h3>About</h3>
-        <ul>
-          <li><a href="#">Our Story</a></li>
-          <li><a href="#">Responsibility</a></li>
-          <li><a href="#">Store Finder</a></li>
-        </ul>
+        <h3>Legal</h3>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
       </div>
       <div class="footer-col">
-        <h3>Follow us</h3>
-        <ul>
-          <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="#" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-        </ul>
+        <h3>Social</h3>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">TikTok</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© ÉLAN 2026</p>
-    </div>
+    <p class="footer-copy">© ÉLAN 2026</p>
   </footer>
 
   <script src="script.js"></script>

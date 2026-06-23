@@ -1,6 +1,16 @@
 (function () {
   'use strict';
 
+  // Header scroll behaviour
+  const header = document.querySelector('.site-header');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 50) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+    lastScroll = y;
+  }, { passive: true });
+
   // Mobile menu
   const menuToggle = document.getElementById('menu-toggle');
   const menuClose = document.getElementById('menu-close');
@@ -14,85 +24,42 @@
     });
   }
   if (menuClose && mobileMenu) {
-    menuClose.addEventListener('click', () => {
+    const closeMenu = () => {
       mobileMenu.hidden = true;
       menuToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.hidden = true;
-        menuToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
+    };
+    menuClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
   }
 
-  // Hero carousel
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.hero-dots button');
-  let currentSlide = 0;
-  let slideInterval;
+  // Hero product card slider
+  const slides = document.querySelectorAll('.product-card__slide');
+  const prevBtn = document.querySelector('.product-card__prev');
+  const nextBtn = document.querySelector('.product-card__next');
+  let current = 0;
 
-  function goToSlide(index) {
-    slides[currentSlide].classList.remove('is-active');
-    dots[currentSlide].classList.remove('is-active');
-    currentSlide = index;
-    slides[currentSlide].classList.add('is-active');
-    dots[currentSlide].classList.add('is-active');
+  function showSlide(i) {
+    slides[current].classList.remove('is-active');
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add('is-active');
   }
 
-  function nextSlide() {
-    goToSlide((currentSlide + 1) % slides.length);
-  }
+  if (prevBtn) prevBtn.addEventListener('click', () => showSlide(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => showSlide(current + 1));
 
-  function startCarousel() {
-    slideInterval = setInterval(nextSlide, 5000);
-  }
-
+  // Auto-rotate hero product card every 4s
   if (slides.length > 1) {
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        clearInterval(slideInterval);
-        goToSlide(i);
-        startCarousel();
-      });
-    });
-    startCarousel();
+    setInterval(() => showSlide(current + 1), 4000);
   }
-
-  // Drag-to-scroll for product carousels
-  function initDragScroll(container) {
-    if (!container) return;
-    let isDown = false, startX, scrollLeft;
-
-    container.addEventListener('mousedown', (e) => {
-      isDown = true;
-      container.classList.add('is-dragging');
-      startX = e.pageX - container.offsetLeft;
-      scrollLeft = container.scrollLeft;
-    });
-    container.addEventListener('mouseleave', () => { isDown = false; container.classList.remove('is-dragging'); });
-    container.addEventListener('mouseup', () => { isDown = false; container.classList.remove('is-dragging'); });
-    container.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - container.offsetLeft;
-      container.scrollLeft = scrollLeft - (x - startX) * 1.5;
-    });
-  }
-
-  initDragScroll(document.getElementById('product-scroll-1'));
-  initDragScroll(document.getElementById('product-scroll-2'));
 
   // Wishlist toggle
   document.querySelectorAll('.wishlist-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      const isActive = btn.classList.toggle('is-active');
-      btn.textContent = isActive ? '♥' : '♡';
-      btn.setAttribute('aria-label', btn.getAttribute('aria-label').replace(isActive ? 'Add' : 'Remove', isActive ? 'Remove' : 'Add'));
+      const active = btn.classList.toggle('is-active');
+      btn.textContent = active ? '♥' : '♡';
     });
   });
 
@@ -105,6 +72,6 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
   revealEls.forEach(el => observer.observe(el));
 })();
