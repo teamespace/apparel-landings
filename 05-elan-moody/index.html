@@ -306,27 +306,52 @@
   </main>
 
   <footer class="site-footer">
+    <div class="footer-logo-big">ÉLAN</div>
+
     <div class="footer-inner">
       <div class="footer-col">
-        <h3>Help</h3>
-        <a href="#">Shipping</a>
-        <a href="#">Returns</a>
-        <a href="#">Size Guide</a>
+        <h3>Services</h3>
         <a href="#">Contact</a>
+        <a href="#">FAQ</a>
+        <a href="#">Shipping & Returns</a>
+      </div>
+      <div class="footer-col">
+        <h3>About</h3>
+        <a href="#">Our Story</a>
+        <a href="#">Sustainability</a>
+        <a href="#">Gift Card</a>
       </div>
       <div class="footer-col">
         <h3>Legal</h3>
-        <a href="#">Terms</a>
-        <a href="#">Privacy</a>
-        <a href="#">Cookies</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
       </div>
-      <div class="footer-col">
-        <h3>Social</h3>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">TikTok</a>
+      <div class="footer-col footer-col--wide">
+        <h3>Newsletter</h3>
+        <form class="footer-newsletter" onsubmit="event.preventDefault();">
+          <label for="footer-email" class="visually-hidden">Email address</label>
+          <input id="footer-email" type="email" placeholder="Your email address" required autocomplete="email">
+          <button type="submit">Send <span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="footer-socials">
+          <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener" aria-label="X / Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+          </a>
+        </div>
       </div>
     </div>
-    <p class="footer-copy">© ÉLAN 2026</p>
+
+    <div class="footer-bottom">
+      <p>© 2026 ÉLAN. Made with intention.</p>
+      <p>ÉLAN, Amsterdam, The Netherlands</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>

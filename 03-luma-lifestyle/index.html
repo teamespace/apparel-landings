@@ -238,65 +238,77 @@
     </section>
 
     <section class="section newsletter" aria-labelledby="newsletter-heading">
-      <div class="container">
-        <h2 class="section-title" id="newsletter-heading">Join the Inner Circle</h2>
-        <p>New arrivals, limited drops, and first access to the LUMA journal.</p>
-        <form class="newsletter__form" id="newsletter-form" action="#" method="post">
-          <label for="email" class="visually-hidden">Email address</label>
-          <input class="newsletter__input" type="email" id="email" name="email" placeholder="Your email" required>
-          <button class="btn" type="submit">Subscribe</button>
-        </form>
-        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+      <div class="container newsletter__inner">
+        <div class="newsletter__text">
+          <p class="eyebrow">Newsletter</p>
+          <h2 class="section-title" id="newsletter-heading">Be the first to know about upcoming drops, events and deals.</h2>
+        </div>
+        <button class="newsletter__cta" id="newsletter-toggle" type="button" aria-expanded="false" aria-controls="newsletter-form">Sign Up</button>
+      </div>
+      <div class="newsletter__form-wrapper" id="newsletter-form-wrapper" hidden>
+        <div class="container">
+          <form class="newsletter__form" id="newsletter-form" action="#" method="post">
+            <label for="email" class="visually-hidden">Email address</label>
+            <input class="newsletter__input" type="email" id="email" name="email" placeholder="Your email" required>
+            <button class="btn" type="submit">Subscribe</button>
+          </form>
+          <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer" role="contentinfo">
     <div class="container">
+      <div class="footer__shipping">
+        <span class="footer__label">Shipping to:</span>
+        <button class="footer__region" type="button" aria-haspopup="listbox" aria-expanded="false">Rest of the World</button>
+      </div>
       <div class="footer__grid">
-        <div class="footer__menu">
-          <h3>Shop</h3>
+        <div class="footer__menu footer__menu--large">
           <ul>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a href="#">Women</a></li>
-            <li><a href="#">Men</a></li>
-            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Destination Everywhere</a></li>
+            <li><a href="#">Sponsored Teams</a></li>
+            <li><a href="#">Find Stores</a></li>
           </ul>
         </div>
         <div class="footer__menu">
-          <h3>Help</h3>
+          <h3>Customer Care</h3>
           <ul>
-            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Get in Touch</a></li>
+            <li><a href="#">Gift Guide</a></li>
+            <li><a href="#">FAQ</a></li>
             <li><a href="#">Returns</a></li>
-            <li><a href="#">Size Guide</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Care Guide</a></li>
           </ul>
         </div>
         <div class="footer__menu">
-          <h3>LUMA</h3>
+          <h3>About LUMA</h3>
           <ul>
-            <li><a href="#">Our Story</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Stores</a></li>
             <li><a href="#">Sustainability</a></li>
             <li><a href="#">Journal</a></li>
-            <li><a href="#">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer__menu">
-          <h3>Connect</h3>
-          <ul class="socials">
-            <li><a href="#" aria-label="Instagram">Instagram</a></li>
-            <li><a href="#" aria-label="Pinterest">Pinterest</a></li>
-            <li><a href="#" aria-label="TikTok">TikTok</a></li>
-            <li><a href="#" aria-label="YouTube">YouTube</a></li>
           </ul>
         </div>
       </div>
       <div class="footer__legal">
-        <p>&copy; 2026 LUMA Lifestyle. All rights reserved.</p>
-        <ul>
+        <ul class="footer__legal-links">
+          <li><a href="#">Terms &amp; Conditions</a></li>
           <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Cookie Setting</a></li>
         </ul>
+        <ul class="footer__socials">
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="YouTube">YouTube</a></li>
+          <li><a href="#" aria-label="TikTok">TikTok</a></li>
+          <li><a href="#" aria-label="Pinterest">Pinterest</a></li>
+        </ul>
+        <p>&copy; LUMA 2026</p>
       </div>
     </div>
   </footer>
