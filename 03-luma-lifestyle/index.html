@@ -4,196 +4,342 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LUMA — Made to Live In</title>
+  <meta name="description" content="LUMA lifestyle essentials — premium, monochrome sportswear and wardrobe staples made to live in.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a href="#" class="logo" aria-label="LUMA home">LUMA</a>
-    <nav class="main-nav" aria-label="Main">
-      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+  <div class="announcement-bar" id="announcement-bar" role="banner" aria-label="Promotions">
+    <div class="announcement-bar__inner">
+      <div class="announcement-bar__messages">
+        <p class="announcement-bar__message is-active" data-index="0">Free shipping on orders over $150</p>
+        <p class="announcement-bar__message" data-index="1">New season drops every Friday</p>
+      </div>
+      <button class="announcement-bar__close" id="announcement-close" aria-label="Close announcement bar">×</button>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open mobile menu">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links" id="nav-menu">
-        <li><a href="#new">New Arrivals</a></li>
-        <li><a href="#wardrobe">Wardrobe</a></li>
-        <li><a href="#journal">Journal</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-    <button class="cart-btn" id="cart-btn" aria-label="Cart">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 5 3H2"/></svg>
-      <span class="cart-count" id="cart-count" data-count="0" aria-label="Items in cart">0</span>
-    </button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#women" class="nav-link">Women</a>
+        <a href="#men" class="nav-link">Men</a>
+        <a href="#journey" class="nav-link">Journey</a>
+      </nav>
+      <a href="#" class="logo" aria-label="LUMA home">LUMA</a>
+      <div class="header-actions">
+        <button class="header-actions__btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <a href="#" class="header-actions__btn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </a>
+        <button class="cart-toggle" id="cart-toggle" aria-expanded="false" aria-controls="cart-drawer" aria-label="Open cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 5 3H2"/></svg>
+          <span class="cart-badge" id="cart-badge" data-count="0" aria-label="Items in cart">0</span>
+        </button>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section class="hero" id="new" aria-label="New arrivals">
-      <div class="hero-cards">
-        <article class="hero-card">
-          <div class="hero-card__media">
-            <img class="hero-card__bg" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Woman wearing a relaxed linen set in natural light" loading="eager">
+    <section class="hero" id="hero" aria-label="Featured collections">
+      <div class="hero__slider" id="hero-slider">
+        <article class="hero__slide active" data-index="0">
+          <div class="hero__media">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80" alt="Woman wearing a relaxed monochrome sportswear set in natural light" loading="eager">
           </div>
-          <div class="hero-card__overlay">
-            <p class="eyebrow">New Arrivals</p>
-            <h2>The Linen Set</h2>
-            <a href="#wardrobe" class="link-underline">Shop now</a>
-          </div>
-        </article>
-        <article class="hero-card">
-          <div class="hero-card__media">
-            <img class="hero-card__bg" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=80" alt="Layered cream knitwear over linen trousers" loading="eager">
-          </div>
-          <div class="hero-card__overlay">
-            <p class="eyebrow">Seasonal</p>
-            <h2>The Knitwear</h2>
-            <a href="#wardrobe" class="link-underline">Shop now</a>
+          <div class="hero__content">
+            <p class="hero__kicker">New Arrivals</p>
+            <h1 class="hero__title">The Everyday Set</h1>
+            <p class="hero__sub">Soft silhouettes built for movement and rest.</p>
+            <a href="#women" class="hero__cta">Explore Now</a>
           </div>
         </article>
-        <article class="hero-card">
-          <div class="hero-card__media">
-            <img class="hero-card__bg" src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=80" alt="Loungewear styled in warm sunlight" loading="eager">
+        <article class="hero__slide" data-index="1">
+          <div class="hero__media">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1600&q=80" alt="Layered cream knitwear over tailored trousers" loading="lazy">
           </div>
-          <div class="hero-card__overlay">
-            <p class="eyebrow">Comfort</p>
-            <h2>The Loungewear</h2>
-            <a href="#wardrobe" class="link-underline">Shop now</a>
+          <div class="hero__content">
+            <p class="hero__kicker">Seasonal</p>
+            <h1 class="hero__title">The Knit Edit</h1>
+            <p class="hero__sub">Refined layers for the in-between days.</p>
+            <a href="#men" class="hero__cta">Explore Now</a>
+          </div>
+        </article>
+        <article class="hero__slide" data-index="2">
+          <div class="hero__media">
+            <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1600&q=80" alt="Loungewear styled in warm sunlight" loading="lazy">
+          </div>
+          <div class="hero__content">
+            <p class="hero__kicker">Comfort</p>
+            <h1 class="hero__title">The Lounge Collection</h1>
+            <p class="hero__sub">Made to live in, from morning to night.</p>
+            <a href="#featured" class="hero__cta">Explore Now</a>
           </div>
         </article>
       </div>
+      <div class="hero__pagination" id="hero-pagination" role="tablist" aria-label="Hero slides">
+        <button class="hero__dot active" data-slide="0" aria-label="Show slide 1" aria-selected="true" role="tab"></button>
+        <button class="hero__dot" data-slide="1" aria-label="Show slide 2" aria-selected="false" role="tab"></button>
+        <button class="hero__dot" data-slide="2" aria-label="Show slide 3" aria-selected="false" role="tab"></button>
+      </div>
     </section>
 
-    <section class="editorial" id="about">
-      <p class="eyebrow">LUMA Lifestyle</p>
-      <h1>Made to Live In</h1>
-      <p class="editorial__copy">Soft silhouettes, natural fibers, and pieces that move with your day. Designed for the slow moments and the busy ones.</p>
+    <section class="section editorial" id="editorial" aria-labelledby="editorial-heading">
+      <div class="container">
+        <p class="eyebrow">LUMA Lifestyle</p>
+        <h2 class="section-title" id="editorial-heading">Made to Live In</h2>
+        <p>Quietly elevated essentials designed for real life. Clean lines, natural fibers, and a monochrome palette that moves with you from workout to wind-down.</p>
+      </div>
     </section>
 
-    <section class="press" aria-label="Press">
-      <p class="press__title">As seen in</p>
-      <div class="marquee">
-        <div class="marquee__track">
-          <span>Vogue</span><span>Elle</span><span>Harper’s Bazaar</span><span>Vanity Fair</span><span>Who What Wear</span><span>InStyle</span>
-          <span>Vogue</span><span>Elle</span><span>Harper’s Bazaar</span><span>Vanity Fair</span><span>Who What Wear</span><span>InStyle</span>
+    <section class="section" id="women" aria-labelledby="category-heading">
+      <div class="container">
+        <div class="category-tabs" role="tablist" aria-label="Shop by category">
+          <button class="category-tab active" data-tab="women" aria-selected="true" role="tab" id="tab-women" aria-controls="grid-women">Women</button>
+          <button class="category-tab" data-tab="men" aria-selected="false" role="tab" id="tab-men" aria-controls="grid-men">Men</button>
+        </div>
+        <h2 class="visually-hidden" id="category-heading">Shop by category</h2>
+        <div class="category-grid" id="grid-women" role="tabpanel" aria-labelledby="tab-women">
+          <a href="#" class="category-card fade-in">
+            <div class="category-card__media">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Women's activewear category">
+            </div>
+            <span class="category-card__caption">Activewear</span>
+          </a>
+          <a href="#" class="category-card fade-in">
+            <div class="category-card__media">
+              <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Women's knitwear category">
+            </div>
+            <span class="category-card__caption">Knitwear</span>
+          </a>
+          <a href="#" class="category-card fade-in">
+            <div class="category-card__media">
+              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Women's essentials category">
+            </div>
+            <span class="category-card__caption">Essentials</span>
+          </a>
+          <a href="#" class="category-card fade-in">
+            <div class="category-card__media">
+              <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80" alt="Women's loungewear category">
+            </div>
+            <span class="category-card__caption">Loungewear</span>
+          </a>
+        </div>
+        <div class="category-grid" id="grid-men" role="tabpanel" aria-labelledby="tab-men" hidden>
+          <a href="#" class="category-card fade-in">
+            <div class="category-card__media">
+              <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80" alt="Men's activewear category">
+            </div>
+            <span class="category-card__caption">Activewear</span>
+          </a>
+          <a href="#" class="category-card fade-in">
+            <div class="category-card__media">
+              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80" alt="Men's knitwear category">
+            </div>
+            <span class="category-card__caption">Knitwear</span>
+          </a>
+          <a href="#" class="category-card fade-in">
+            <div class="category-card__media">
+              <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Men's essentials category">
+            </div>
+            <span class="category-card__caption">Essentials</span>
+          </a>
+          <a href="#" class="category-card fade-in">
+            <div class="category-card__media">
+              <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80" alt="Men's loungewear category">
+            </div>
+            <span class="category-card__caption">Loungewear</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="story" id="journal">
-      <div class="story__image">
-        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80" alt="Folded natural linen garments on a wooden table in warm light">
-      </div>
-      <div class="story__text">
-        <p class="eyebrow">Our Story</p>
-        <h2>Clothes with a Quieter Rhythm</h2>
-        <p>LUMA began with a simple idea: what if getting dressed felt like a deep breath? We design small collections in natural palettes, cut from organic cotton, linen, and responsibly sourced wool. Each piece is made to be lived in, mended, and loved for years.</p>
-        <a href="#" class="link-underline">Read our journal</a>
-      </div>
-    </section>
-
-    <section class="experiences" aria-labelledby="experiences-heading">
-      <div class="section-header">
-        <p class="eyebrow">Curated Guides</p>
-        <h2 id="experiences-heading">The LUMA Edit</h2>
-      </div>
-      <div class="experience-grid">
-        <article class="experience-card">
-          <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Close-up of linen fabric texture">
-          <div class="experience-card__body">
-            <h3>The Linen Edit</h3>
-            <p>Breathable tailoring that moves from morning errands to evening plans.</p>
-            <a href="#" class="link-underline">Read the guide</a>
-          </div>
-        </article>
-        <article class="experience-card">
-          <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80" alt="Detail of a soft knit cardigan">
-          <div class="experience-card__body">
-            <h3>The Knit Guide</h3>
-            <p>Layering essentials for the in-between days and cozy nights in.</p>
-            <a href="#" class="link-underline">Read the guide</a>
-          </div>
-        </article>
-        <article class="experience-card">
-          <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80" alt="Loungewear flatlay in soft natural tones">
-          <div class="experience-card__body">
-            <h3>The Loungewear Ritual</h3>
-            <p>Slow mornings deserve pieces that feel like a deep breath.</p>
-            <a href="#" class="link-underline">Read the guide</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="products" id="wardrobe" aria-labelledby="products-heading">
-      <div class="section-header">
+    <section class="featured-split" id="featured" aria-labelledby="featured-heading">
+      <div class="featured-split__content">
         <p class="eyebrow">The Wardrobe</p>
-        <h2 id="products-heading">Featured Pieces</h2>
+        <h2 class="section-title" id="featured-heading">Featured Pieces</h2>
+        <p>Curated staples with a clean, premium finish. Designed to be worn together or on their own.</p>
+        <div class="product-scroll" id="product-scroll"></div>
       </div>
-      <div class="product-grid" id="product-grid"></div>
-    </section>
-
-    <section class="social" aria-labelledby="social-heading">
-      <div class="section-header">
-        <p class="eyebrow">@luma</p>
-        <h2 id="social-heading">Follow Along</h2>
-      </div>
-      <div class="social-grid">
-        <a href="#" class="social-item social-item--tall"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Editorial street style in a neutral palette"></a>
-        <a href="#" class="social-item"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=80" alt="Portrait in flowing natural fabric"></a>
-        <a href="#" class="social-item"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Relaxed linen look on a model"></a>
-        <a href="#" class="social-item social-item--tall"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80" alt="Cream knit layered over linen trousers"></a>
-        <a href="#" class="social-item"><img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=600&q=80" alt="Relaxed tailoring in warm sunlight"></a>
-        <a href="#" class="social-item"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80" alt="Folded linen garments on a wooden table"></a>
-        <a href="#" class="social-item social-item--cta"><span>Follow @luma</span></a>
+      <div class="featured-split__image">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80" alt="Model wearing LUMA monochrome essentials in a minimal studio setting">
       </div>
     </section>
 
-    <section class="newsletter" aria-labelledby="newsletter-heading">
-      <h2 id="newsletter-heading">Join the LUMA circle</h2>
-      <p>New arrivals, slow-living notes, and first access to small batches.</p>
-      <form class="newsletter-form" id="newsletter-form" action="#" method="post">
-        <label for="email" class="visually-hidden">Email address</label>
-        <input type="email" id="email" name="email" placeholder="Your email" required>
-        <button type="submit" class="btn">Subscribe</button>
-      </form>
-      <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+    <section class="section journey-blocks" id="journey" aria-labelledby="journey-heading">
+      <div class="container">
+        <p class="eyebrow">The Journal</p>
+        <h2 class="section-title" id="journey-heading">Journey</h2>
+        <div class="journey-blocks__grid">
+          <article class="journey-block fade-in">
+            <div class="journey-block__content">
+              <span class="journey-block__badge">Lifestyle</span>
+              <h3>The Morning Ritual</h3>
+              <p>How the right layers turn slow mornings into intentional starts.</p>
+              <a href="#" class="journey-block__link">Read More</a>
+            </div>
+            <div class="journey-block__media">
+              <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80" alt="Loungewear flatlay in soft natural tones">
+            </div>
+          </article>
+          <article class="journey-block fade-in">
+            <div class="journey-block__content">
+              <span class="journey-block__badge">Movement</span>
+              <h3>Train in Tone</h3>
+              <p>Monochrome activewear that performs from warm-up to cooldown.</p>
+              <a href="#" class="journey-block__link">Read More</a>
+            </div>
+            <div class="journey-block__media">
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80" alt="Person stretching in minimal activewear">
+            </div>
+          </article>
+          <article class="journey-block fade-in">
+            <div class="journey-block__content">
+              <span class="journey-block__badge">Design</span>
+              <h3>Less, But Better</h3>
+              <p>Inside our process for building a wardrobe that outlasts trends.</p>
+              <a href="#" class="journey-block__link">Read More</a>
+            </div>
+            <div class="journey-block__media">
+              <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Close-up of premium fabric texture">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section newsletter" aria-labelledby="newsletter-heading">
+      <div class="container">
+        <h2 class="section-title" id="newsletter-heading">Join the Inner Circle</h2>
+        <p>New arrivals, limited drops, and first access to the LUMA journal.</p>
+        <form class="newsletter__form" id="newsletter-form" action="#" method="post">
+          <label for="email" class="visually-hidden">Email address</label>
+          <input class="newsletter__input" type="email" id="email" name="email" placeholder="Your email" required>
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer__inner">
-      <div class="footer-brand">
-        <span class="logo">LUMA</span>
-        <p>Made to live in.</p>
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__menu">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer__menu">
+          <h3>Help</h3>
+          <ul>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__menu">
+          <h3>LUMA</h3>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Journal</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer__menu">
+          <h3>Connect</h3>
+          <ul class="socials">
+            <li><a href="#" aria-label="Instagram">Instagram</a></li>
+            <li><a href="#" aria-label="Pinterest">Pinterest</a></li>
+            <li><a href="#" aria-label="TikTok">TikTok</a></li>
+            <li><a href="#" aria-label="YouTube">YouTube</a></li>
+          </ul>
+        </div>
       </div>
-      <ul class="footer-links">
-        <li><a href="#">Shipping</a></li>
-        <li><a href="#">Returns</a></li>
-        <li><a href="#">Care</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <p class="copyright">&copy; 2026 LUMA Lifestyle. All rights reserved.</p>
+      <div class="footer__legal">
+        <p>&copy; 2026 LUMA Lifestyle. All rights reserved.</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
+
+  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+    <div class="cart-drawer__overlay" data-close aria-hidden="true"></div>
+    <div class="cart-drawer__panel">
+      <div class="cart-drawer__header">
+        <h2 id="cart-title">Your Cart</h2>
+        <button class="cart-drawer__close" data-close aria-label="Close cart">×</button>
+      </div>
+      <div class="cart-list"></div>
+      <div class="cart-total">
+        <span>Subtotal</span>
+        <span class="cart-total__price">$0.00</span>
+      </div>
+      <button type="button" class="btn btn--wide checkout-btn">Checkout</button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" hidden>
+    <div class="mobile-menu__overlay" data-close aria-hidden="true"></div>
+    <div class="mobile-menu__panel">
+      <div class="mobile-menu__header">
+        <span class="logo" id="mobile-menu-title">LUMA</span>
+        <button class="mobile-menu__close" data-close aria-label="Close menu">×</button>
+      </div>
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <div class="accordion">
+          <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-women">Women</button>
+          <div class="accordion__panel" id="acc-women" hidden>
+            <a href="#">Activewear</a>
+            <a href="#">Knitwear</a>
+            <a href="#">Essentials</a>
+            <a href="#">Loungewear</a>
+          </div>
+          <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-men">Men</button>
+          <div class="accordion__panel" id="acc-men" hidden>
+            <a href="#">Activewear</a>
+            <a href="#">Knitwear</a>
+            <a href="#">Essentials</a>
+            <a href="#">Loungewear</a>
+          </div>
+          <a href="#journey" class="accordion__link">Journey</a>
+          <a href="#" class="accordion__link">Account</a>
+        </div>
+      </nav>
+    </div>
+  </div>
 
   <div class="modal" id="quick-view" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
     <div class="modal-backdrop" data-close></div>
     <div class="modal-panel">
-      <button class="modal-close" data-close aria-label="Close quick view">&times;</button>
+      <button class="modal-close" data-close aria-label="Close quick view">×</button>
       <div class="modal-layout">
         <img id="modal-img" src="" alt="">
         <div class="modal-info">
-          <span class="eyebrow">Quick View</span>
-          <h2 id="modal-title"></h2>
-          <p class="modal-price" id="modal-price"></p>
+          <h2 id="modal-title" class="section-title"></h2>
+          <p id="modal-price" class="modal-price"></p>
           <p id="modal-desc"></p>
           <fieldset class="size-options">
             <legend>Select size</legend>
             <div class="sizes" id="modal-sizes"></div>
           </fieldset>
-          <button class="btn btn-wide" id="add-to-bag">Add to Bag</button>
+          <button class="btn" id="add-to-bag">Add to Bag</button>
         </div>
       </div>
     </div>
