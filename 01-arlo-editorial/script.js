@@ -2,12 +2,12 @@
   'use strict';
 
   const products = [
-    { id: 1, name: 'Linen Trench', price: 340, image: 'https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=600&q=80', sizes: ['XS', 'S', 'M', 'L'], selected: 'S' },
-    { id: 2, name: 'Cashmere Knit', price: 260, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80', sizes: ['XS', 'S', 'M', 'L'], selected: 'S' },
-    { id: 3, name: 'Wide-Leg Trousers', price: 195, image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80', sizes: ['XS', 'S', 'M', 'L'], selected: 'M' },
-    { id: 4, name: 'Silk Blouse', price: 225, image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?auto=format&fit=crop&w=600&q=80', sizes: ['XS', 'S', 'M', 'L'], selected: 'S' },
-    { id: 5, name: 'Merino Scarf', price: 95, image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=600&q=80', sizes: ['One Size'], selected: 'One Size' },
-    { id: 6, name: 'Tailored Blazer', price: 420, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80', sizes: ['XS', 'S', 'M', 'L'], selected: 'S' }
+    { id: 1, name: 'Linen Trench', price: 340, image: '/generated-assets/arlo/arlo-product-1.png', sizes: ['XS', 'S', 'M', 'L'], selected: 'S' },
+    { id: 2, name: 'Cashmere Knit', price: 260, image: '/generated-assets/arlo/arlo-product-2.png', sizes: ['XS', 'S', 'M', 'L'], selected: 'S' },
+    { id: 3, name: 'Wide-Leg Trousers', price: 195, image: '/generated-assets/arlo/arlo-product-3.png', sizes: ['XS', 'S', 'M', 'L'], selected: 'M' },
+    { id: 4, name: 'Silk Shirt', price: 225, image: '/generated-assets/arlo/arlo-product-4.png', sizes: ['XS', 'S', 'M', 'L'], selected: 'S' },
+    { id: 5, name: 'Merino Scarf', price: 95, image: '/generated-assets/arlo/arlo-product-5.png', sizes: ['One Size'], selected: 'One Size' },
+    { id: 6, name: 'Tailored Blazer', price: 420, image: '/generated-assets/arlo/arlo-product-6.png', sizes: ['XS', 'S', 'M', 'L'], selected: 'S' }
   ];
 
   let bagCount = 0;
@@ -38,6 +38,7 @@
   const backdrop = document.getElementById('drawer-backdrop');
   const drawerClose = document.getElementById('drawer-close');
   const drawerGrid = document.getElementById('drawer-grid');
+  const bagBtn = document.getElementById('bag-btn');
   const bagCountEl = document.getElementById('bag-count');
 
   function openDrawer() {
