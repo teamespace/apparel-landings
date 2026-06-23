@@ -148,6 +148,34 @@
     });
   }
 
+  // Collection showcase dots
+  const showcaseImg = document.getElementById('showcase-img');
+  const showcaseDots = document.querySelectorAll('.showcase-dot');
+  const showcaseProducts = [
+    { image: '/generated-assets/arlo/arlo-product-3.png', alt: 'Wide-leg trousers', name: 'Wide-Leg Trousers', price: '$195' },
+    { image: '/generated-assets/arlo/arlo-product-1.png', alt: 'Linen trench coat', name: 'Linen Trench', price: '$340' },
+    { image: '/generated-assets/arlo/arlo-product-2.png', alt: 'Cashmere knit', name: 'Cashmere Knit', price: '$260' },
+    { image: '/generated-assets/arlo/arlo-product-4.png', alt: 'Silk shirt', name: 'Silk Shirt', price: '$225' },
+    { image: '/generated-assets/arlo/arlo-product-5.png', alt: 'Merino scarf', name: 'Merino Scarf', price: '$95' },
+    { image: '/generated-assets/arlo/arlo-product-6.png', alt: 'Tailored blazer', name: 'Tailored Blazer', price: '$420' }
+  ];
+  if (showcaseImg && showcaseDots.length) {
+    showcaseDots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        const product = showcaseProducts[i];
+        if (!product) return;
+        showcaseImg.src = product.image;
+        showcaseImg.alt = product.alt;
+        const nameEl = document.querySelector('.collection-showcase__name');
+        const priceEl = document.querySelector('.collection-showcase__price');
+        if (nameEl) nameEl.textContent = product.name;
+        if (priceEl) priceEl.textContent = product.price;
+        showcaseDots.forEach(d => d.classList.remove('is-active'));
+        dot.classList.add('is-active');
+      });
+    });
+  }
+
   // Scroll reveal
   const revealEls = document.querySelectorAll('.category-card, .feature-product, .lookbook__item, .craft__inner, .journal-card, .manifesto__inner');
   const observer = new IntersectionObserver((entries) => {
