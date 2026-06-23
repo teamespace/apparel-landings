@@ -1,4 +1,4 @@
-':root {
+:root {
   --black: #000000;
   --lime: #C8FF00;
   --off-white: #F2F2F2;
@@ -498,6 +498,7 @@ input:focus-visible {
 /* ── Newsletter ── */
 .newsletter {
   padding: 1rem;
+  background: var(--black);
   border-top: var(--border);
   border-bottom: var(--border);
 }
