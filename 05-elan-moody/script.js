@@ -73,6 +73,26 @@
     });
   }
 
+  // New Arrivals drag-to-scroll
+  const newArrivalsScroll = document.getElementById('new-arrivals-scroll');
+  if (newArrivalsScroll) {
+    let isDown = false, startX, scrollLeft;
+    newArrivalsScroll.addEventListener('mousedown', (e) => {
+      isDown = true;
+      newArrivalsScroll.classList.add('is-dragging');
+      startX = e.pageX - newArrivalsScroll.offsetLeft;
+      scrollLeft = newArrivalsScroll.scrollLeft;
+    });
+    newArrivalsScroll.addEventListener('mouseleave', () => { isDown = false; newArrivalsScroll.classList.remove('is-dragging'); });
+    newArrivalsScroll.addEventListener('mouseup', () => { isDown = false; newArrivalsScroll.classList.remove('is-dragging'); });
+    newArrivalsScroll.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - newArrivalsScroll.offsetLeft;
+      newArrivalsScroll.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+  }
+
   // Wishlist toggle
   document.querySelectorAll('.wishlist-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
