@@ -577,6 +577,19 @@ function initMobileMenu() {
 }
 
 function initNewsletter() {
+  const toggle = $('#newsletter-toggle');
+  const wrapper = $('#newsletter-form-wrapper');
+  if (toggle && wrapper) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      wrapper.hidden = expanded;
+      if (!expanded) {
+        setTimeout(() => wrapper.querySelector('input')?.focus(), 100);
+      }
+    });
+  }
+
   const form = $('#newsletter-form');
   const note = $('#form-note');
   if (form && note) {
@@ -584,6 +597,8 @@ function initNewsletter() {
       e.preventDefault();
       note.textContent = 'Thank you for subscribing to LUMA.';
       form.reset();
+      if (wrapper) wrapper.hidden = true;
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
     });
   }
 }
