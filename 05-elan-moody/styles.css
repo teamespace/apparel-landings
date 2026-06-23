@@ -485,7 +485,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .menu-toggle { display: none; }
   .main-nav { display: flex; }
   .logo { position: static; transform: none; order: -1; margin-right: auto; }
-  .header-inner { padding: 1rem 2.5rem; }
+  .header-inner { padding: 1rem 2.5rem; gap: 2rem; }
+  .header-actions { margin-left: auto; }
   .hero-content { left: 3rem; bottom: 7rem; }
   .hero-product-card { right: 3rem; bottom: 7rem; }
   .product-section { padding: 6rem 2.5rem; }
