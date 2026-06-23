@@ -231,3 +231,35 @@ playBtn.addEventListener('click', () => {
 
 renderProducts();
 updateCart();
+
+// Scroll-reveal animation for .reveal sections
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Header scroll behavior: sticky black background after hero
+const header = document.querySelector('.site-header') || document.querySelector('header');
+const hero = document.querySelector('.hero-split');
+if (header && hero) {
+  const onScroll = () => {
+    const pastHero = window.scrollY > hero.offsetHeight - header.offsetHeight;
+    header.classList.toggle('scrolled', pastHero);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+// Marquee pause-on-hover
+const marquee = document.querySelector('.marquee-track') || document.querySelector('.marquee');
+if (marquee) {
+  const parent = marquee.parentElement;
+  parent.addEventListener('mouseenter', () => { marquee.style.animationPlayState = 'paused'; });
+  parent.addEventListener('mouseleave', () => { marquee.style.animationPlayState = ''; });
+}
