@@ -381,6 +381,7 @@ function initAnnouncementBar() {
     close.addEventListener('click', () => {
       clearInterval(interval);
       bar.style.display = 'none';
+      document.documentElement.style.setProperty('--announcement-height', '0px');
     });
   }
 }
