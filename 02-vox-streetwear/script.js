@@ -5,6 +5,8 @@ const products = [
   { id: 'p4', name: 'DROP TEE / 07', price: 48, image: '/generated-assets/vox/vox-product-4.png' },
   { id: 'p5', name: 'VOX BEANIE', price: 36, image: '/generated-assets/vox/vox-product-5.png' },
   { id: 'p6', name: 'CARGO SHORT', price: 72, image: '/generated-assets/vox/vox-product-6.png' },
+  { id: 'p7', name: 'MUTANT CROSSBODY BAG', price: 58, image: '/generated-assets/vox/vox-product-7.png' },
+  { id: 'p8', name: 'TACTICAL VEST / 07', price: 145, image: '/generated-assets/vox/vox-product-8.png' },
 ];
 
 const sizes = ['S', 'M', 'L', 'XL'];

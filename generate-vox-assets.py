@@ -50,6 +50,8 @@ IMAGES = [
     ("vox-product-4", f"{BASE_STYLE}, male model wearing black oversized drop shoulder t-shirt, muscular build, grey concrete background, half body"),
     ("vox-product-5", f"Dark streetwear product still life, black ribbed beanie on concrete surface, minimal, moody light"),
     ("vox-product-6", f"{BASE_STYLE}, male model from waist down in black cargo shorts with utility pockets, white socks and black sneakers, concrete background"),
+    ("vox-product-7", f"Dark streetwear product still life, black crossbody bag with silver zippers and utility straps on raw concrete surface, moody cinematic light, black olive and carbon grey palette, premium accessories photography", "1024x1280"),
+    ("vox-product-8", f"{BASE_STYLE}, male model wearing black tactical utility vest with multiple pockets over a black hoodie, half body shot, grey concrete background", "1024x1280"),
 
     # Lookbook
     ("vox-look-1", f"{BASE_STYLE}, male model in black bomber jacket standing in urban stairwell, looking up, dramatic overhead light"),
@@ -92,9 +94,13 @@ def generate_image(prompt: str, filename: str, size: str = "1024x1536") -> Path:
 
 
 def generate_one(item):
-    filename, prompt = item
+    if len(item) == 3:
+        filename, prompt, size = item
+    else:
+        filename, prompt = item
+        size = "1024x1536"
     try:
-        path = generate_image(prompt, filename)
+        path = generate_image(prompt, filename, size=size)
         return (filename, "ok", str(path))
     except Exception as e:
         return (filename, "failed", str(e))
