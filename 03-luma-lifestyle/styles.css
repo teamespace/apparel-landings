@@ -552,14 +552,9 @@ button.btn {
 .hero__slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .hero__slider {
-    aspect-ratio: 16 / 9;
-  }
 }
 
 .hero__slide {
@@ -1080,13 +1075,24 @@ button.btn {
   }
 }
 
+.showcase__slider {
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  overflow: hidden;
+}
+
 .showcase__grid {
   display: flex;
   flex-wrap: nowrap;
   gap: 1rem;
-  overflow-x: hidden;
+  overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.showcase__grid::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 768px) {
