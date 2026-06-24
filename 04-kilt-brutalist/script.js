@@ -41,6 +41,20 @@ const products = [
     price: 210,
     image: '../generated-assets/kilt/kilt-product-6.png',
     alt: 'Technical cargo pant with articulated knees and taped pockets'
+  },
+  {
+    id: 'p7',
+    name: 'Tactical Balaclava',
+    price: 65,
+    image: '../generated-assets/kilt/kilt-product-7.png',
+    alt: 'Technical balaclava face mask with breathable mesh panel'
+  },
+  {
+    id: 'p8',
+    name: 'Crossbody Sling',
+    price: 175,
+    image: '../generated-assets/kilt/kilt-product-8.png',
+    alt: 'Tactical crossbody sling bag with multiple compartments'
   }
 ];
 
