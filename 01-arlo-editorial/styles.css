@@ -212,6 +212,7 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 65%;
   filter: grayscale(15%);
 }
 .hero-slide__content {
@@ -298,7 +299,7 @@ a { color: inherit; text-decoration: none; }
   display: grid; gap: 1rem; max-width: 72rem; margin: 0 auto;
 }
 .category-card {
-  position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden;
+  position: relative; display: block; aspect-ratio: 2 / 3; overflow: hidden;
 }
 .category-card img {
   width: 100%; height: 100%; object-fit: cover; filter: grayscale(25%);
@@ -337,7 +338,7 @@ a { color: inherit; text-decoration: none; }
   flex: 0 0 75%; scroll-snap-align: start; max-width: 280px;
 }
 .feature-product__media {
-  aspect-ratio: 3 / 4; overflow: hidden; margin-bottom: 1rem;
+  aspect-ratio: 2 / 3; overflow: hidden; margin-bottom: 1rem;
   background: var(--surface);
 }
 .feature-product__media img {
@@ -381,12 +382,14 @@ a { color: inherit; text-decoration: none; }
 }
 .collection-showcase__stage {
   width: 100%;
-  max-width: 320px;
+  max-width: 280px;
   margin-bottom: 1.5rem;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
 }
 .collection-showcase__stage img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   object-fit: cover;
   filter: grayscale(10%);
 }
@@ -437,7 +440,7 @@ a { color: inherit; text-decoration: none; }
   transform: scale(1.15);
 }
 .collection-showcase__model {
-  min-height: 50vh;
+  aspect-ratio: 2 / 3;
   overflow: hidden;
 }
 .collection-showcase__model img {
@@ -453,7 +456,7 @@ a { color: inherit; text-decoration: none; }
 .lookbook__grid {
   display: grid; gap: 0.75rem; max-width: 64rem; margin: 0 auto;
 }
-.lookbook__item { position: relative; margin: 0; overflow: hidden; max-height: 28rem; }
+.lookbook__item { position: relative; margin: 0; overflow: hidden; aspect-ratio: 2 / 3; }
 .lookbook__item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%); }
 .lookbook__item figcaption {
   position: absolute; left: 1rem; bottom: 1rem;
@@ -471,7 +474,8 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase;
 }
 .craft__list li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
-.craft__media img { width: 100%; height: 28rem; object-fit: cover; filter: grayscale(15%); }
+.craft__media { aspect-ratio: 2 / 3; overflow: hidden; }
+.craft__media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%); }
 
 /* Marquee */
 .marquee {
@@ -526,7 +530,7 @@ a { color: inherit; text-decoration: none; }
 .journal-card--narrow { width: clamp(220px, 28vw, 340px); }
 .journal-card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
   filter: grayscale(15%);
   display: block;
@@ -645,10 +649,8 @@ a { color: inherit; text-decoration: none; }
   .feature-product { flex: 0 0 45%; }
   .collection-showcase { grid-template-columns: 1fr 1fr; }
   .collection-showcase__product { padding: 4rem 2rem; }
-  .collection-showcase__model { min-height: auto; }
+  .collection-showcase__model { aspect-ratio: 2 / 3; }
   .lookbook__grid { grid-template-columns: repeat(3, 1fr); }
-  .lookbook__item--wide { grid-column: span 2; }
-  .lookbook__item--tall { grid-row: span 2; }
   .craft__inner { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
   .craft__media img { height: 100%; min-height: 32rem; }
   .journal__arrow { display: flex; }
