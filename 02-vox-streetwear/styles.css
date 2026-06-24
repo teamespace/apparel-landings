@@ -543,12 +543,10 @@ button {
 }
 
 .lookbook-track img {
-  height: 60vh;
-  min-height: 320px;
-  max-height: 560px;
-  width: 45vw;
-  min-width: 280px;
+  width: max(280px, 45vw);
   max-width: 460px;
+  aspect-ratio: 2 / 3;
+  height: auto;
   object-fit: cover;
   user-select: none;
   pointer-events: none;
