@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 
 ASSETS = Path(__file__).parent / "05-elan-moody" / "assets"
-MODELS = [f"elan-model-{i:02d}.jpg" for i in range(1, 9)]
+MODELS = [f"elan-model-{i:02d}.jpg" for i in range(1, 9)] + [f"elan-model-{i:02d}-back.jpg" for i in range(1, 9)]
 
 TOLERANCE = 32  # color distance tolerance
 
